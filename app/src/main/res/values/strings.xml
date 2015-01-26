@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ColorMaster</string>
+
+    <string name="string_color_red">Red</string>
+    <string name="string_color_orange">Orange</string>
+    <string name="string_color_yellow">Yellow</string>
+    <string name="string_color_green">Green</string>
+    <string name="string_color_blue">blue</string>
+    <string name="string_color_indigo">Indigo</string>
+    <string name="string_color_violet">violet</string>
+
+</resources>
