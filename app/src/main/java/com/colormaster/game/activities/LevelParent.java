@@ -34,15 +34,15 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
 
     private TextView tvLeftColor, tvRightColor, tvScore;
     private TextView tvGameOverScore, tvGameOverBest;
-    private LinearLayout llLeftSide, llRightSide, llGameOver;
+    private LinearLayout layoutLeftSide, layoutRightSide, layoutGameOver;
     private ImageButton btnReplay;
 
-    private RelativeLayout rlGameTutorial;
+    private RelativeLayout layoutGameTutorial;
 
     private Color colorLeft, colorRight;
 
-    CountDownTimer countDownTimerLeft, countDownTimerRight;
-    ProgressBar progressBarLeft, progressBarRight;
+    private CountDownTimer countDownTimerLeft, countDownTimerRight;
+    private ProgressBar progressBarLeft, progressBarRight;
 
     private Animation fadeIn, fadeOut;
 
@@ -58,17 +58,17 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         tvScore = (TextView) findViewById(R.id.tv_score);
         tvLeftColor = (TextView) findViewById(R.id.tv_left_side);
         tvRightColor = (TextView) findViewById(R.id.tv_right_side);
-        llLeftSide = (LinearLayout) findViewById(R.id.layout_left_side);
-        llLeftSide.setOnTouchListener(this);
-        llRightSide = (LinearLayout) findViewById(R.id.layout_right_side);
-        llRightSide.setOnTouchListener(this);
-        rlGameTutorial = (RelativeLayout) findViewById(R.id.layout_tutorial);
-        rlGameTutorial.setOnClickListener(this);
+        layoutLeftSide = (LinearLayout) findViewById(R.id.layout_left_side);
+        layoutLeftSide.setOnTouchListener(this);
+        layoutRightSide = (LinearLayout) findViewById(R.id.layout_right_side);
+        layoutRightSide.setOnTouchListener(this);
+        layoutGameTutorial = (RelativeLayout) findViewById(R.id.layout_tutorial);
+        layoutGameTutorial.setOnClickListener(this);
         progressBarLeft = (ProgressBar) findViewById(R.id.progress_left);
         progressBarRight = (ProgressBar) findViewById(R.id.progress_right);
 
-        llGameOver = (LinearLayout) findViewById(R.id.layout_game_over);
-        llGameOver.setVisibility(View.GONE);
+        layoutGameOver = (LinearLayout) findViewById(R.id.layout_game_over);
+        layoutGameOver.setVisibility(View.GONE);
         tvGameOverScore = (TextView) findViewById(R.id.game_over_tv_score);
         tvGameOverBest = (TextView) findViewById(R.id.game_over_tv_best);
         btnReplay = (ImageButton) findViewById(R.id.game_over_btn_replay);
@@ -83,8 +83,8 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         fadeIn.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-                llLeftSide.setOnTouchListener(null);
-                llRightSide.setOnTouchListener(null);
+                layoutLeftSide.setOnTouchListener(null);
+                layoutRightSide.setOnTouchListener(null);
                 cancellCountDownTimers();
                 showScoreDialog();
             }
@@ -106,7 +106,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-                tvScore.setText(""+score);
+                tvScore.setText("" + score);
                 btnReplay.setClickable(false);
                 progressBarLeft.setProgress(progressBarLeft.getMax());
                 progressBarRight.setProgress(progressBarRight.getMax());
@@ -117,8 +117,8 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
             @Override
             public void onAnimationEnd(Animation animation) {
                 hideScoreDialog();
-                llLeftSide.setOnTouchListener(LevelParent.this);
-                llRightSide.setOnTouchListener(LevelParent.this);
+                layoutLeftSide.setOnTouchListener(LevelParent.this);
+                layoutRightSide.setOnTouchListener(LevelParent.this);
                 startSideTimer(LEFT_SIDE, GameHelper.getTimeForLevel(score));
                 startSideTimer(RIGHT_SIDE, GameHelper.getTimeForLevel(score));
             }
@@ -134,14 +134,14 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         colorLeft = new Color(this);
         tvLeftColor.setTextColor(colorLeft.getColorValue());
         tvLeftColor.setText(colorLeft.getColorText());
-        llLeftSide.setBackgroundDrawable(colorLeft.getParentLayoutBgImage());
+        layoutLeftSide.setBackgroundDrawable(colorLeft.getParentLayoutBgImage());
     }
 
     private void generateRightColor() {
         colorRight = new Color(this);
         tvRightColor.setTextColor(colorRight.getColorValue());
         tvRightColor.setText(colorRight.getColorText());
-        llRightSide.setBackgroundDrawable(colorRight.getParentLayoutBgImage());
+        layoutRightSide.setBackgroundDrawable(colorRight.getParentLayoutBgImage());
     }
 
     private void startSideTimer(int side, final int levelTime) {
@@ -254,7 +254,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     }
 
     private void hideScoreDialog() {
-        llGameOver.setVisibility(View.GONE);
+        layoutGameOver.setVisibility(View.GONE);
     }
 
     private void startLevel() {
@@ -266,8 +266,8 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     }
 
     private void showScoreDialog() {
-        if (!llGameOver.isShown()) {
-            llGameOver.setVisibility(View.VISIBLE);
+        if (!layoutGameOver.isShown()) {
+            layoutGameOver.setVisibility(View.VISIBLE);
             tvGameOverBest.setText("0");
             tvGameOverScore.setText("" + score);
         }
@@ -275,15 +275,17 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
 
     @Override
     public void onBackPressed() {
-        if (llGameOver.isShown()) {
+        if (layoutGameTutorial.isShown()) {
+            finish();
+        } else if (layoutGameOver.isShown()) {
             finish();
         } else {
-            llGameOver.startAnimation(fadeIn);
+            layoutGameOver.startAnimation(fadeIn);
         }
     }
 
     private void endLevel() {
-        llGameOver.startAnimation(fadeIn);
+        layoutGameOver.startAnimation(fadeIn);
     }
 
     private void cancellCountDownTimers() {
@@ -314,11 +316,11 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.layout_tutorial:
-                rlGameTutorial.setVisibility(View.GONE);
+                layoutGameTutorial.setVisibility(View.GONE);
                 startLevel();
                 break;
             case R.id.game_over_btn_replay:
-                llGameOver.startAnimation(fadeOut);
+                layoutGameOver.startAnimation(fadeOut);
                 break;
         }
     }
