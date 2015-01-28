@@ -3,16 +3,20 @@ package com.colormaster.game.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 import com.colormaster.game.R;
 
-public class LevelChooser extends Activity implements View.OnClickListener {
+public class LevelChooser extends Activity implements View.OnClickListener, Animation.AnimationListener, View.OnTouchListener {
 
     int gameDifficalty = 1; //value from 1 to 2
 
-    private ImageButton btnGameDifficalty;
+    private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnShare, btnLeaderboard;
+    private Animation zoomIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +25,24 @@ public class LevelChooser extends Activity implements View.OnClickListener {
 
         btnGameDifficalty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
         btnGameDifficalty.setOnClickListener(this);
-        findViewById(R.id.level_chooser_btn_help).setOnClickListener(this);
-        findViewById(R.id.level_chooser_btn_markapp).setOnClickListener(this);
-        findViewById(R.id.level_chooser_btn_play).setOnClickListener(this);
-        findViewById(R.id.level_chooser_btn_share).setOnClickListener(this);
-        findViewById(R.id.level_chooser_btn_leaderboard).setOnClickListener(this);
+        btnGameDifficalty.setOnTouchListener(this);
+        btnHelp = (ImageButton) findViewById(R.id.level_chooser_btn_help);
+        btnHelp.setOnClickListener(this);
+        btnHelp.setOnTouchListener(this);
+        btnMarkapp = (ImageButton) findViewById(R.id.level_chooser_btn_markapp);
+        btnMarkapp.setOnClickListener(this);
+        btnMarkapp.setOnTouchListener(this);
+        btnPlay = (ImageButton) findViewById(R.id.level_chooser_btn_play);
+        btnPlay.setOnClickListener(this);
+        btnPlay.setOnTouchListener(this);
+        btnShare = (ImageButton) findViewById(R.id.level_chooser_btn_share);
+        btnShare.setOnClickListener(this);
+        btnShare.setOnTouchListener(this);
+        btnLeaderboard = (ImageButton) findViewById(R.id.level_chooser_btn_leaderboard);
+        btnLeaderboard.setOnClickListener(this);
+        btnLeaderboard.setOnTouchListener(this);
 
-
+        zoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
     }
 
     @Override
@@ -35,7 +50,7 @@ public class LevelChooser extends Activity implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.level_chooser_btn_difficalty:
-                switch (gameDifficalty){
+                switch (gameDifficalty) {
                     case 1:
                         btnGameDifficalty.setImageResource(R.drawable.game_difficalty_2);
                         gameDifficalty = 2;
@@ -52,7 +67,7 @@ public class LevelChooser extends Activity implements View.OnClickListener {
                 break;
             case R.id.level_chooser_btn_play:
                 Intent game = null;
-                switch (gameDifficalty){
+                switch (gameDifficalty) {
                     case 1:
                         game = new Intent(this, LevelSurvival.class);
                         break;
@@ -68,5 +83,38 @@ public class LevelChooser extends Activity implements View.OnClickListener {
             case R.id.level_chooser_btn_leaderboard:
                 break;
         }
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        zoomIn.cancel();
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                zoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
+                zoomIn.setAnimationListener(LevelChooser.this);
+                v.startAnimation(zoomIn);
+                break;
+        }
+        return false;
     }
 }

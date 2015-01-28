@@ -22,7 +22,7 @@
                 android:indeterminate="false"
                 android:paddingRight="2dp" />
 
-            <ProgressBar
+            <com.colormaster.game.views.MirroredProgressBar
                 android:id="@+id/progress_right"
                 style="@android:style/Widget.ProgressBar.Horizontal"
                 android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
                     android:id="@+id/tv_left_side"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_transparent"
+                    android:background="@drawable/tv_side_bg"
                     android:gravity="center"
                     android:text="LEFT"
                     android:textSize="60sp"
@@ -76,8 +76,8 @@
                     android:id="@+id/tv_right_side"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/tv_side_bg"
                     android:gravity="center"
-                    android:background="@drawable/gradient_transparent"
                     android:text="RIGHT"
                     android:textSize="60sp"
                     android:textStyle="bold" />
@@ -93,15 +93,15 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
+        android:background="@drawable/abc_switch_thumb_material"
         android:gravity="center"
-        android:background="@drawable/score_background"
         android:text="0"
         android:textColor="@android:color/black"
         android:textSize="25sp" />
 
-    <include layout="@layout/game_tutorial"/>
+    <include layout="@layout/game_tutorial" />
 
-    <include layout="@layout/game_over"/>
+    <include layout="@layout/game_over" />
 
 
 </FrameLayout>

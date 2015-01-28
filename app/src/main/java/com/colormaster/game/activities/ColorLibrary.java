@@ -1,18 +1,13 @@
 package com.colormaster.game.activities;
 
+import android.app.Activity;
 import android.os.Bundle;
 
-import com.colormaster.game.R;
-
-public class LevelSurvival extends LevelParent {
-
-
+public class ColorLibrary extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.level_screen);
-        initViews();
-        initAnimations();
+
     }
 }
