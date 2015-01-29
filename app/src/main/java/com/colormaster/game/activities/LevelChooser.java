@@ -25,29 +25,29 @@ public class LevelChooser extends Activity implements View.OnClickListener, Anim
 
         btnGameDifficalty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
         btnGameDifficalty.setOnClickListener(this);
-        btnGameDifficalty.setOnTouchListener(this);
+//        btnGameDifficalty.setOnTouchListener(this);
         btnHelp = (ImageButton) findViewById(R.id.level_chooser_btn_help);
         btnHelp.setOnClickListener(this);
-        btnHelp.setOnTouchListener(this);
+//        btnHelp.setOnTouchListener(this);
         btnMarkapp = (ImageButton) findViewById(R.id.level_chooser_btn_markapp);
         btnMarkapp.setOnClickListener(this);
-        btnMarkapp.setOnTouchListener(this);
+//        btnMarkapp.setOnTouchListener(this);
         btnPlay = (ImageButton) findViewById(R.id.level_chooser_btn_play);
         btnPlay.setOnClickListener(this);
-        btnPlay.setOnTouchListener(this);
+//        btnPlay.setOnTouchListener(this);
         btnShare = (ImageButton) findViewById(R.id.level_chooser_btn_share);
         btnShare.setOnClickListener(this);
-        btnShare.setOnTouchListener(this);
+//        btnShare.setOnTouchListener(this);
         btnLeaderboard = (ImageButton) findViewById(R.id.level_chooser_btn_leaderboard);
         btnLeaderboard.setOnClickListener(this);
-        btnLeaderboard.setOnTouchListener(this);
+//        btnLeaderboard.setOnTouchListener(this);
 
         zoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
     }
 
     @Override
     public void onClick(View v) {
-
+        Intent nextActivity = null;
         switch (v.getId()) {
             case R.id.level_chooser_btn_difficalty:
                 switch (gameDifficalty) {
@@ -62,20 +62,23 @@ public class LevelChooser extends Activity implements View.OnClickListener, Anim
                 }
                 break;
             case R.id.level_chooser_btn_help:
+                nextActivity = new Intent(this, ColorLibrary.class);
+                startActivity(nextActivity);
                 break;
             case R.id.level_chooser_btn_markapp:
                 break;
             case R.id.level_chooser_btn_play:
-                Intent game = null;
                 switch (gameDifficalty) {
                     case 1:
-                        game = new Intent(this, LevelSurvival.class);
+                        nextActivity = new Intent(this, LevelSurvival.class);
+                        nextActivity.putExtra(getString(R.string.prefkey_game_difficalty), gameDifficalty);
                         break;
                     case 2:
-                        game = new Intent(this, LevelMirrored.class);
+                        nextActivity = new Intent(this, LevelMirrored.class);
+                        nextActivity.putExtra(getString(R.string.prefkey_game_difficalty), gameDifficalty);
                         break;
                 }
-                startActivity(game);
+                startActivity(nextActivity);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.level_chooser_btn_share:

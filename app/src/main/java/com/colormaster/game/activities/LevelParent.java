@@ -19,13 +19,14 @@ import com.colormaster.game.R;
 
 public class LevelParent extends Activity implements View.OnTouchListener, View.OnClickListener {
 
-    private final static int START_TIME = 6000; //set up start time to level. MilliSeconds
     private final static int TAP_RADIUS_RANGE = 10; //set up value to definate tap or not
     private final static int COUNT_DOWN_INTERVAL = 10; //Interval to update timers. MilliSeconds
     private final static int GAME_OVER_ANIM_DURATION = 1100; //Anim duration of the game over overlay. Milliseconds
 
     private final static int LEFT_SIDE = 101;
     private final static int RIGHT_SIDE = 102;
+
+    private int gameDifficalty;
 
     private static int score = 0;
 
@@ -50,6 +51,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.level_mirror);
+        gameDifficalty = getIntent().getIntExtra(getString(R.string.prefkey_game_difficalty), 1);
         initViews();
         initAnimations();
     }
@@ -129,6 +131,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
             }
         });
     }
+
 
     private void generateLeftColor() {
         colorLeft = new Color(this);
@@ -268,7 +271,8 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     private void showScoreDialog() {
         if (!layoutGameOver.isShown()) {
             layoutGameOver.setVisibility(View.VISIBLE);
-            tvGameOverBest.setText("0");
+            int asaasdasdasdasdasd = GameHelper.loadBestScore(this, gameDifficalty);
+            tvGameOverBest.setText("" + GameHelper.loadBestScore(this, gameDifficalty));
             tvGameOverScore.setText("" + score);
         }
     }
@@ -285,6 +289,9 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     }
 
     private void endLevel() {
+        if (score > GameHelper.loadBestScore(LevelParent.this, gameDifficalty)) {
+            GameHelper.saveBestScore(LevelParent.this, gameDifficalty, score);
+        }
         layoutGameOver.startAnimation(fadeIn);
     }
 

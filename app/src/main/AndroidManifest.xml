@@ -26,6 +26,9 @@
         <activity
             android:name=".activities.LevelMirrored"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".activities.ColorLibrary"
+            android:screenOrientation="landscape"/>
 
     </application>
 

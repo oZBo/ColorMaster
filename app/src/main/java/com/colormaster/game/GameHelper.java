@@ -1,5 +1,7 @@
 package com.colormaster.game;
 
+import android.content.Context;
+
 public class GameHelper {
 
 
@@ -40,4 +42,32 @@ public class GameHelper {
         }
         return 1;
     }
+
+    public static void saveBestScore(Context context, int gameDifficaltyKey, int score){
+        switch(gameDifficaltyKey){
+            case 1:
+                PreferenceUtil.putInt(context, context.getString(R.string.prefkey_gamediff_easy), score);
+                break;
+            case 2:
+                PreferenceUtil.putInt(context, context.getString(R.string.prefkey_gamediff_medium), score);
+                break;
+            case 3:
+                PreferenceUtil.putInt(context, context.getString(R.string.prefkey_gamediff_hard), score);
+                break;
+        }
+    }
+
+    public static int loadBestScore(Context context, int gameDifficaltyKey){
+        switch(gameDifficaltyKey){
+            case 1:
+                return PreferenceUtil.getInt(context, context.getString(R.string.prefkey_gamediff_easy), 0);
+            case 2:
+                return PreferenceUtil.getInt(context, context.getString(R.string.prefkey_gamediff_medium), 0);
+            case 3:
+                return PreferenceUtil.getInt(context, context.getString(R.string.prefkey_gamediff_hard), 0);
+            default:
+                return 0;
+        }
+    }
+
 }
