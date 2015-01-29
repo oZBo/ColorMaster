@@ -1,6 +1,7 @@
 package com.colormaster.game;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  */
 public class GridViewAdapter extends BaseAdapter {
 
-    class ViewHolder {
+    static class ViewHolder {
         TextView colorName;
         ImageView color;
     }
@@ -34,7 +35,7 @@ public class GridViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public LibraryColorObject getItem(int position) {
         return colorsList.get(position);
     }
 
@@ -53,11 +54,13 @@ public class GridViewAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.colorName = (TextView) convertView.findViewById(R.id.grid_item_text);
             holder.color = (ImageView) convertView.findViewById(R.id.grid_item_image);
-            holder.colorName.setText(colorsList.get(position).getColorName());
+            convertView.setTag(holder);
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-        //TODO ПОФИКСИТЬ ЭТОТ ЕБУЧИЙ АДАПТЕР, КОТОРЫЙ МЕНЯ СУКА ЗАЕБАЛ!!!!!!!!!!!!!!!!!!!!!!
+
+        holder.colorName.setText(colorsList.get(position).getColorName());
+        holder.color.getDrawable().setColorFilter(colorsList.get(position).getColor(), PorterDuff.Mode.MULTIPLY);
         return convertView;
     }
 }

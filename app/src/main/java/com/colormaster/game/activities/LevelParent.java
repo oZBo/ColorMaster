@@ -50,8 +50,8 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.level_mirror);
         gameDifficalty = getIntent().getIntExtra(getString(R.string.prefkey_game_difficalty), 1);
+        setContentView(R.layout.level_mirror);
         initViews();
         initAnimations();
     }
@@ -271,7 +271,6 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     private void showScoreDialog() {
         if (!layoutGameOver.isShown()) {
             layoutGameOver.setVisibility(View.VISIBLE);
-            int asaasdasdasdasdasd = GameHelper.loadBestScore(this, gameDifficalty);
             tvGameOverBest.setText("" + GameHelper.loadBestScore(this, gameDifficalty));
             tvGameOverScore.setText("" + score);
         }

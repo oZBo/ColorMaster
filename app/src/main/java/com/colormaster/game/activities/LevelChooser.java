@@ -64,6 +64,7 @@ public class LevelChooser extends Activity implements View.OnClickListener, Anim
             case R.id.level_chooser_btn_help:
                 nextActivity = new Intent(this, ColorLibrary.class);
                 startActivity(nextActivity);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.level_chooser_btn_markapp:
                 break;
