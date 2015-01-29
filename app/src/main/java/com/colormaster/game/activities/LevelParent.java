@@ -7,6 +7,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import com.colormaster.game.Color;
 import com.colormaster.game.GameHelper;
+import com.colormaster.game.PreferenceUtil;
 import com.colormaster.game.R;
 
 public class LevelParent extends Activity implements View.OnTouchListener, View.OnClickListener {
@@ -37,14 +40,12 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     private TextView tvGameOverScore, tvGameOverBest;
     private LinearLayout layoutLeftSide, layoutRightSide, layoutGameOver;
     private ImageButton btnReplay;
-
+    private ProgressBar progressBarLeft, progressBarRight;
     private RelativeLayout layoutGameTutorial;
+    private CheckBox cbDontShowTutorial;
 
     private Color colorLeft, colorRight;
-
     private CountDownTimer countDownTimerLeft, countDownTimerRight;
-    private ProgressBar progressBarLeft, progressBarRight;
-
     private Animation fadeIn, fadeOut;
 
     @Override
@@ -54,6 +55,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         setContentView(R.layout.level_mirror);
         initViews();
         initAnimations();
+        initTutorialView();
     }
 
     protected void initViews() {
@@ -64,8 +66,6 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         layoutLeftSide.setOnTouchListener(this);
         layoutRightSide = (LinearLayout) findViewById(R.id.layout_right_side);
         layoutRightSide.setOnTouchListener(this);
-        layoutGameTutorial = (RelativeLayout) findViewById(R.id.layout_tutorial);
-        layoutGameTutorial.setOnClickListener(this);
         progressBarLeft = (ProgressBar) findViewById(R.id.progress_left);
         progressBarRight = (ProgressBar) findViewById(R.id.progress_right);
 
@@ -76,6 +76,28 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         btnReplay = (ImageButton) findViewById(R.id.game_over_btn_replay);
         btnReplay.setOnClickListener(this);
 
+    }
+
+    protected void initTutorialView() {
+        layoutGameTutorial = (RelativeLayout) findViewById(R.id.layout_tutorial);
+        if (!PreferenceUtil.getBoolean(LevelParent.this, getString(R.string.prefkey_dont_show_tutorial), false)) {
+            layoutGameTutorial.setOnClickListener(this);
+
+            LinearLayout layoutCheckBox = (LinearLayout) findViewById(R.id.layout_dont_show_again);
+            layoutCheckBox.setOnClickListener(this);
+            cbDontShowTutorial = (CheckBox) findViewById(R.id.cb_dont_show_again);
+            cbDontShowTutorial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(isChecked){
+                        PreferenceUtil.putBoolean(LevelParent.this, getString(R.string.prefkey_dont_show_tutorial), true);
+                    }
+                }
+            });
+        }else{
+            layoutGameTutorial.setVisibility(View.GONE);
+            startLevel();
+        }
     }
 
     protected void initAnimations() {
@@ -327,6 +349,13 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
                 break;
             case R.id.game_over_btn_replay:
                 layoutGameOver.startAnimation(fadeOut);
+                break;
+            case R.id.layout_dont_show_again:
+                if(cbDontShowTutorial.isChecked()){
+                    cbDontShowTutorial.setChecked(false);
+                }else{
+                    cbDontShowTutorial.setChecked(true);
+                }
                 break;
         }
     }

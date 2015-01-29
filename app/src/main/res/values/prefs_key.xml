@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
+    <string name="prefkey_dont_show_tutorial">dontShowTutorial</string>
     <string name="prefkey_game_difficalty">gameDifficalty</string>
     <string name="prefkey_gamediff_easy">difficaltyEasy</string>
     <string name="prefkey_gamediff_medium">difficaltyMedium</string>

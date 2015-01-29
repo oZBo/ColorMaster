@@ -9,9 +9,16 @@ import android.preference.PreferenceManager;
  */
 public class PreferenceUtil {
 
-    public static boolean getBoolean(Context context, String preferanceKey, boolean defaultValue){
+    public static boolean getBoolean(Context context, String preferenceKey, boolean defaultValue){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        return sp.getBoolean(preferanceKey, defaultValue);
+        return sp.getBoolean(preferenceKey, defaultValue);
+    }
+
+    public static boolean putBoolean(Context context, String preferenceKey, boolean value){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editorSp = sp.edit();
+        editorSp.putBoolean(preferenceKey, value);
+        return editorSp.commit();
     }
 
     public static int getInt(Context context, String preferanceKey, int defaultValue){

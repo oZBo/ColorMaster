@@ -12,5 +12,6 @@ public class LevelMirrored extends LevelParent {
         setContentView(R.layout.level_mirror);
         initViews();
         initAnimations();
+        initTutorialView();
     }
 }

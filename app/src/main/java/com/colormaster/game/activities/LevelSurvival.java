@@ -14,5 +14,6 @@ public class LevelSurvival extends LevelParent {
         setContentView(R.layout.level_screen);
         initViews();
         initAnimations();
+        initTutorialView();
     }
 }
