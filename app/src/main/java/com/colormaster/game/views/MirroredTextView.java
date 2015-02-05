@@ -3,9 +3,8 @@ package com.colormaster.game.views;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
-public class MirroredTextView extends TextView {
+public class MirroredTextView extends CustomFontTextView {
 
     public MirroredTextView(Context context, AttributeSet attrs) {
         super(context, attrs);

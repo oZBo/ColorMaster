@@ -15,7 +15,7 @@
         app:border_width="2dp"
         app:border_color="#FF000000"/>
 
-    <TextView
+    <com.colormaster.game.views.CustomFontTextView
         android:id="@+id/grid_item_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

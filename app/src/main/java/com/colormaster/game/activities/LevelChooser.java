@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.colormaster.game.R;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
@@ -14,6 +15,7 @@ public class LevelChooser extends Activity implements View.OnClickListener {
     int gameDifficalty = 1; //value from 1 to 2
 
     private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnShare, btnLeaderboard;
+    private TextView tvAppName;
 
     private EasyRatingDialog easyRatingDialog;
 
