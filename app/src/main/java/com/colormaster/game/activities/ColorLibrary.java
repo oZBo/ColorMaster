@@ -25,7 +25,7 @@ public class ColorLibrary extends Activity {
         LibraryColorObject color4 = new LibraryColorObject(this.getResources().getColor(R.color.green), "Green");
         LibraryColorObject color5 = new LibraryColorObject(this.getResources().getColor(R.color.blue), "Blue");
         LibraryColorObject color6 = new LibraryColorObject(this.getResources().getColor(R.color.indigo), "Indigo");
-        LibraryColorObject color7 = new LibraryColorObject(this.getResources().getColor(R.color.violet), "Violet");
+        LibraryColorObject color7 = new LibraryColorObject(this.getResources().getColor(R.color.purple), "Violet");
         colorsList.add(color1);
         colorsList.add(color2);
         colorsList.add(color3);

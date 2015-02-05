@@ -3,17 +3,37 @@
 
     <string name="app_name">ColorMaster</string>
 
-    <string name="string_color_red">Red</string>
-    <string name="string_color_orange">Orange</string>
-    <string name="string_color_yellow">Yellow</string>
-    <string name="string_color_green">Green</string>
-    <string name="string_color_blue">blue</string>
-    <string name="string_color_indigo">Indigo</string>
-    <string name="string_color_violet">violet</string>
+    <!--Color names-->
+    <string name="color_red">Red</string>
+    <string name="color_pink">pink</string>
+    <string name="color_purple">purple</string>
+    <string name="color_deep_purple">deep_purple</string>
+    <string name="color_indigo">indigo</string>
+    <string name="color_blue">blue</string>
+    <string name="color_cyan">cyan</string>
+    <string name="color_teal">teal</string>
+    <string name="color_green">green</string>
+    <string name="color_light_green">light_green</string>
+    <string name="color_lime">lime</string>
+    <string name="color_yellow">yellow</string>
+    <string name="color_amber">amber</string>
+    <string name="color_orange">orange</string>
+    <string name="color_deep_orange">deep_orange</string>
+    <string name="color_brown">brown</string>
+    <string name="color_grey">grey</string>
+    <!--End color names-->
 
     <string name="game_over">GAME OVER</string>
     <string name="score">SCORE</string>
     <string name="best">BEST</string>
     <string name="tip">If text color same as color name swipe top, otherwise B- down</string>
+
+    <!--Strings for appRaterDialog-->
+    <string name="erd_title">Rate this app</string>
+    <string name="erd_message">Hi, take a minute to rate this app and help support to improve more new features. ;)</string>
+    <string name="erd_no_thanks">No, thanks</string>
+    <string name="erd_remind_me_later">Remind me later</string>
+    <string name="erd_rate_now">Rate now</string>
+    <!--End appRaterDialog-->
 
 </resources>

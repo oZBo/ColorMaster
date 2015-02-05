@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Color {
 
-    private static final int COLORS_NUMBER = 7;
+    private static final int COLORS_NUMBER = 16;
 
     private int colorValue;
     private Drawable parentLayoutBgImage;
@@ -25,8 +25,8 @@ public class Color {
         colorSameAsText = random.nextBoolean();
         colorValue = ColorHelper.getColorValue(mContext, randomColor);
         colorText = ColorHelper.getColorName(mContext, randomColor);
-        textColorInactive = mContext.getResources().getColor(R.color.darker_gray);
-        parentLayoutColorInactive = mContext.getResources().getColor(R.color.gray);
+        textColorInactive = mContext.getResources().getColor(R.color.green_200);
+        parentLayoutColorInactive = mContext.getResources().getColor(R.color.green_500);
         configureColors();
     }
 

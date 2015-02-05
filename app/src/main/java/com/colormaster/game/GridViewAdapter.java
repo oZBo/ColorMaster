@@ -6,10 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by oZBo on 26.01.2015.
@@ -18,7 +19,7 @@ public class GridViewAdapter extends BaseAdapter {
 
     static class ViewHolder {
         TextView colorName;
-        ImageView color;
+        CircleImageView color;
     }
 
     private ArrayList<LibraryColorObject> colorsList;
@@ -53,7 +54,7 @@ public class GridViewAdapter extends BaseAdapter {
             convertView = li.inflate(R.layout.gridview_item, parent, false);
             holder = new ViewHolder();
             holder.colorName = (TextView) convertView.findViewById(R.id.grid_item_text);
-            holder.color = (ImageView) convertView.findViewById(R.id.grid_item_image);
+            holder.color = (CircleImageView) convertView.findViewById(R.id.grid_item_image);
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder) convertView.getTag();

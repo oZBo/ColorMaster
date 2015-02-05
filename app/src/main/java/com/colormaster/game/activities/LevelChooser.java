@@ -3,46 +3,49 @@ package com.colormaster.game.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 import com.colormaster.game.R;
+import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 
-public class LevelChooser extends Activity implements View.OnClickListener, Animation.AnimationListener, View.OnTouchListener {
+public class LevelChooser extends Activity implements View.OnClickListener {
 
     int gameDifficalty = 1; //value from 1 to 2
 
     private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnShare, btnLeaderboard;
-    private Animation zoomIn;
+
+    private EasyRatingDialog easyRatingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
-
+        easyRatingDialog = new EasyRatingDialog(this);
         btnGameDifficalty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
         btnGameDifficalty.setOnClickListener(this);
-//        btnGameDifficalty.setOnTouchListener(this);
         btnHelp = (ImageButton) findViewById(R.id.level_chooser_btn_help);
         btnHelp.setOnClickListener(this);
-//        btnHelp.setOnTouchListener(this);
         btnMarkapp = (ImageButton) findViewById(R.id.level_chooser_btn_markapp);
         btnMarkapp.setOnClickListener(this);
-//        btnMarkapp.setOnTouchListener(this);
         btnPlay = (ImageButton) findViewById(R.id.level_chooser_btn_play);
         btnPlay.setOnClickListener(this);
-//        btnPlay.setOnTouchListener(this);
         btnShare = (ImageButton) findViewById(R.id.level_chooser_btn_share);
         btnShare.setOnClickListener(this);
-//        btnShare.setOnTouchListener(this);
         btnLeaderboard = (ImageButton) findViewById(R.id.level_chooser_btn_leaderboard);
         btnLeaderboard.setOnClickListener(this);
-//        btnLeaderboard.setOnTouchListener(this);
+    }
 
-        zoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        easyRatingDialog.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        easyRatingDialog.showIfNeeded();
     }
 
     @Override
@@ -87,38 +90,5 @@ public class LevelChooser extends Activity implements View.OnClickListener, Anim
             case R.id.level_chooser_btn_leaderboard:
                 break;
         }
-    }
-
-    @Override
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override
-    public void onAnimationEnd(Animation animation) {
-
-    }
-
-    @Override
-    public void onAnimationRepeat(Animation animation) {
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        zoomIn.cancel();
-    }
-
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                zoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in);
-                zoomIn.setAnimationListener(LevelChooser.this);
-                v.startAnimation(zoomIn);
-                break;
-        }
-        return false;
     }
 }

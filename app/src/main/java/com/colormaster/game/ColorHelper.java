@@ -12,21 +12,41 @@ class ColorHelper {
     public static String getColorName(Context mContext, int colorNumber) {
         switch (colorNumber) {
             case 0:
-                return mContext.getResources().getString(R.string.string_color_red);
+                return mContext.getResources().getString(R.string.color_red);
             case 1:
-                return mContext.getResources().getString(R.string.string_color_orange);
+                return mContext.getResources().getString(R.string.color_pink);
             case 2:
-                return mContext.getResources().getString(R.string.string_color_yellow);
+                return mContext.getResources().getString(R.string.color_purple);
             case 3:
-                return mContext.getResources().getString(R.string.string_color_green);
+                return mContext.getResources().getString(R.string.color_deep_purple);
             case 4:
-                return mContext.getResources().getString(R.string.string_color_blue);
+                return mContext.getResources().getString(R.string.color_indigo);
             case 5:
-                return mContext.getResources().getString(R.string.string_color_indigo);
+                return mContext.getResources().getString(R.string.color_blue);
             case 6:
-                return mContext.getResources().getString(R.string.string_color_violet);
+                return mContext.getResources().getString(R.string.color_cyan);
+            case 7:
+                return mContext.getResources().getString(R.string.color_teal);
+            case 8:
+                return mContext.getResources().getString(R.string.color_green);
+            case 9:
+                return mContext.getResources().getString(R.string.color_light_green);
+            case 10:
+                return mContext.getResources().getString(R.string.color_lime);
+            case 11:
+                return mContext.getResources().getString(R.string.color_yellow);
+            case 12:
+                return mContext.getResources().getString(R.string.color_amber);
+            case 13:
+                return mContext.getResources().getString(R.string.color_orange);
+            case 14:
+                return mContext.getResources().getString(R.string.color_deep_orange);
+            case 15:
+                return mContext.getResources().getString(R.string.color_brown);
+            case 16:
+                return mContext.getResources().getString(R.string.color_grey);
             default:
-                return "oops... something gone wrong";
+                return "WTF???";
         }
     }
 
@@ -35,19 +55,39 @@ class ColorHelper {
             case 0:
                 return mContext.getResources().getColor(R.color.red);
             case 1:
-                return mContext.getResources().getColor(R.color.orange);
+                return mContext.getResources().getColor(R.color.pink);
             case 2:
-                return mContext.getResources().getColor(R.color.yellow);
+                return mContext.getResources().getColor(R.color.purple);
             case 3:
-                return mContext.getResources().getColor(R.color.green);
+                return mContext.getResources().getColor(R.color.deep_purple);
             case 4:
-                return mContext.getResources().getColor(R.color.blue);
-            case 5:
                 return mContext.getResources().getColor(R.color.indigo);
+            case 5:
+                return mContext.getResources().getColor(R.color.blue);
             case 6:
-                return mContext.getResources().getColor(R.color.violet);
+                return mContext.getResources().getColor(R.color.cyan);
+            case 7:
+                return mContext.getResources().getColor(R.color.teal);
+            case 8:
+                return mContext.getResources().getColor(R.color.green);
+            case 9:
+                return mContext.getResources().getColor(R.color.light_green);
+            case 10:
+                return mContext.getResources().getColor(R.color.lime);
+            case 11:
+                return mContext.getResources().getColor(R.color.yellow);
+            case 12:
+                return mContext.getResources().getColor(R.color.amber);
+            case 13:
+                return mContext.getResources().getColor(R.color.orange);
+            case 14:
+                return mContext.getResources().getColor(R.color.deep_orange);
+            case 15:
+                return mContext.getResources().getColor(R.color.brown);
+            case 16:
+                return mContext.getResources().getColor(R.color.grey);
             default:
-                return 666666;
+                return 505;
         }
     }
 

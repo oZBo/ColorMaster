@@ -20,6 +20,7 @@
                 android:layout_height="10dp"
                 android:layout_weight="1"
                 android:indeterminate="false"
+                android:progressDrawable="@drawable/progress_drawable"
                 android:paddingRight="2dp"/>
 
             <com.colormaster.game.views.MirroredProgressBar
@@ -30,6 +31,7 @@
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
                 android:indeterminate="false"
+                android:progressDrawable="@drawable/progress_drawable"
                 android:paddingLeft="2dp"/>
 
         </LinearLayout>
