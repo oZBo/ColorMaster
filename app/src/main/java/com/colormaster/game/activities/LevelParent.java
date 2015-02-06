@@ -365,7 +365,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
                 onBackPressed();
                 break;
             case R.id.game_over_btn_share:
-                GameHelper.shareScore(this, "WOW! I scored " + score + "points in Color Master game on Android ");
+                GameHelper.shareScore(this, getString(R.string.share_dialog_part_1) + score + getString(R.string.share_dialog_part_2) + getString(R.string.share_dialog_part_3));
                 break;
         }
     }

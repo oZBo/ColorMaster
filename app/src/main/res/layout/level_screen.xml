@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/tv_side_bg"
                     android:gravity="center"
-                    android:text="LEFT"
+                    android:text="@string/left_side"
                     android:textSize="60sp"
                     android:textStyle="bold" />
 
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/tv_side_bg"
                     android:gravity="center"
-                    android:text="RIGHT"
+                    android:text="@string/right_side"
                     android:textSize="60sp"
                     android:textStyle="bold" />
 

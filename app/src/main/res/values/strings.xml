@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ColorMaster</string>
+    <string name="app_name">Color Master</string>
 
     <!--Color names-->
     <string name="color_red">Red</string>
@@ -27,7 +27,18 @@
     <string name="game_over">GAME OVER</string>
     <string name="score">SCORE</string>
     <string name="best">BEST</string>
-    <string name="tip">If text color same as color name swipe top, otherwise B- down</string>
+    <string name="tip">If text color same as color name swipe top, otherwise - down</string>
+    <string name="tap_to_continue">Tap to continue!</string>
+    <string name="tip_dont_show_again">Do not show this tip again</string>
+    <string name="left_side">LEFT</string>
+    <string name="right_side">RIGHT</string>
+    <string name="level_easy">Easy</string>
+    <string name="level_medium">Medium</string>
+    <string name="level_hard">Hard</string>
+
+    <string name="share_dialog_part_1">WOW! I scored </string>
+    <string name="share_dialog_part_2"> points in Color Master game on Android </string>
+    <string name="share_dialog_part_3"> "linkToTheGameOnAndroidMarket"</string>
     <!--End app strings-->
 
     <!--Strings for appRaterDialog-->

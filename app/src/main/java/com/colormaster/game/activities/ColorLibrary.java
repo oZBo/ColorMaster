@@ -18,6 +18,7 @@ public class ColorLibrary extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.color_library);
 
+        //TODO fixxed colorLibrary
         ArrayList<LibraryColorObject> colorsList = new ArrayList<>();
         LibraryColorObject color1 = new LibraryColorObject(this.getResources().getColor(R.color.red), "Red");
         LibraryColorObject color2 = new LibraryColorObject(this.getResources().getColor(R.color.orange), "Orange");

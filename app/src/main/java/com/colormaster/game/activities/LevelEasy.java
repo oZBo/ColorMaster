@@ -13,7 +13,7 @@ import com.colormaster.game.R;
 
 import java.util.Random;
 
-public class LevelClassic extends Activity implements View.OnTouchListener, View.OnClickListener {
+public class LevelEasy extends Activity implements View.OnTouchListener, View.OnClickListener {
 
     private TextView tvLeftColor, tvRightColor, tvScore;
     private LinearLayout layoutLeftSide, layoutRightSide;

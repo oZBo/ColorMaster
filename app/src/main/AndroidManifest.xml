@@ -18,13 +18,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.LevelClassic"
+            android:name=".activities.LevelEasy"
             android:screenOrientation="landscape" />
         <activity
             android:name=".activities.LevelSurvival"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".activities.LevelMirrored"
+            android:name=".activities.LevelMedium"
             android:screenOrientation="landscape" />
         <activity
             android:name=".activities.ColorLibrary"

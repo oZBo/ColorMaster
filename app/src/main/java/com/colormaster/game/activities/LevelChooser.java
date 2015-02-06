@@ -12,7 +12,7 @@ import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 
 public class LevelChooser extends Activity implements View.OnClickListener {
 
-    int gameDifficalty = 1; //value from 1 to 2
+    private int gameDifficalty = 1; //value from 1 to 3
 
     private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay;
 
@@ -54,15 +54,15 @@ public class LevelChooser extends Activity implements View.OnClickListener {
                     case 1:
                         btnGameDifficalty.setImageResource(R.drawable.game_difficalty_2);
                         gameDifficalty = 2;
-                        GameHelper.showToast(this, "Medium");
+                        GameHelper.showToast(this, getString(R.string.level_medium));
                         break;
                     case 2:
                         btnGameDifficalty.setImageResource(R.drawable.game_difficalty_1);
                         gameDifficalty = 1;
-                        GameHelper.showToast(this, "Easy");
+                        GameHelper.showToast(this, getString(R.string.level_easy));
                         break;
                     case 3:
-                        GameHelper.showToast(this, "Hard");
+                        GameHelper.showToast(this, getString(R.string.level_hard));
                         break;
                 }
                 break;
@@ -80,7 +80,7 @@ public class LevelChooser extends Activity implements View.OnClickListener {
                         nextActivity.putExtra(getString(R.string.prefkey_game_difficalty), gameDifficalty);
                         break;
                     case 2:
-                        nextActivity = new Intent(this, LevelMirrored.class);
+                        nextActivity = new Intent(this, LevelMedium.class);
                         nextActivity.putExtra(getString(R.string.prefkey_game_difficalty), gameDifficalty);
                         break;
                 }
