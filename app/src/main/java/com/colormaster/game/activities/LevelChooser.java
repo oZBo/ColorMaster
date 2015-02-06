@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.colormaster.game.GameHelper;
 import com.colormaster.game.R;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 
@@ -53,10 +54,15 @@ public class LevelChooser extends Activity implements View.OnClickListener {
                     case 1:
                         btnGameDifficalty.setImageResource(R.drawable.game_difficalty_2);
                         gameDifficalty = 2;
+                        GameHelper.showToast(this, "Medium");
                         break;
                     case 2:
                         btnGameDifficalty.setImageResource(R.drawable.game_difficalty_1);
                         gameDifficalty = 1;
+                        GameHelper.showToast(this, "Easy");
+                        break;
+                    case 3:
+                        GameHelper.showToast(this, "Hard");
                         break;
                 }
                 break;

@@ -2,9 +2,11 @@ package com.colormaster.game;
 
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 public class GameHelper {
 
+    private static Toast mToast;
 
     /**
      * @param score
@@ -76,6 +78,16 @@ public class GameHelper {
         sharingIntent.setType("text/plain");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
         context.startActivity(Intent.createChooser(sharingIntent, null));
+    }
+
+    public static void showToast(Context cont, String message) {
+        if (mToast == null) {
+            mToast = Toast.makeText(cont, message, Toast.LENGTH_SHORT);
+        }
+        if (!mToast.getView().isShown()) {
+            mToast.setText(message);
+            mToast.show();
+        }
     }
 
 }

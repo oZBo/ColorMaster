@@ -7,17 +7,25 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.colormaster.game.views.CustomFontTextView
-        android:id="@+id/app_name"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center|bottom"
-        android:paddingBottom="15dp"
-        android:text="COLOR MASTER"
-        android:textColor="@android:color/black"
-        android:textSize="45sp"
-        android:textStyle="bold" />
+        android:paddingBottom="15dp">
+
+        <com.colormaster.game.views.CustomFontTextView
+            android:id="@+id/app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|bottom"
+            android:text="COLOR MASTER"
+            android:textColor="@android:color/black"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
