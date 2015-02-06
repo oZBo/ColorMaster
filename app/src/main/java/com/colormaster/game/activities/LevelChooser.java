@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.colormaster.game.R;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
@@ -14,8 +13,7 @@ public class LevelChooser extends Activity implements View.OnClickListener {
 
     int gameDifficalty = 1; //value from 1 to 2
 
-    private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnShare, btnLeaderboard;
-    private TextView tvAppName;
+    private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay;
 
     private EasyRatingDialog easyRatingDialog;
 
@@ -32,10 +30,6 @@ public class LevelChooser extends Activity implements View.OnClickListener {
         btnMarkapp.setOnClickListener(this);
         btnPlay = (ImageButton) findViewById(R.id.level_chooser_btn_play);
         btnPlay.setOnClickListener(this);
-        btnShare = (ImageButton) findViewById(R.id.level_chooser_btn_share);
-        btnShare.setOnClickListener(this);
-        btnLeaderboard = (ImageButton) findViewById(R.id.level_chooser_btn_leaderboard);
-        btnLeaderboard.setOnClickListener(this);
     }
 
     @Override
@@ -86,10 +80,6 @@ public class LevelChooser extends Activity implements View.OnClickListener {
                 }
                 startActivity(nextActivity);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                break;
-            case R.id.level_chooser_btn_share:
-                break;
-            case R.id.level_chooser_btn_leaderboard:
                 break;
         }
     }

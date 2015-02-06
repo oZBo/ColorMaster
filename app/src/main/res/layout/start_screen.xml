@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="3"
-    android:background="@color/grey_500"
+    android:background="@drawable/background"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -43,14 +43,9 @@
         android:paddingTop="15dp">
 
         <ImageButton
-            android:id="@+id/level_chooser_btn_share"
-            style="@style/OptionImageButton"
-            android:src="@drawable/share" />
-
-        <ImageButton
             android:id="@+id/level_chooser_btn_markapp"
             style="@style/OptionImageButton"
-            android:src="@drawable/star_black" />
+            android:src="@drawable/favorite" />
 
         <ImageButton
             android:id="@+id/level_chooser_btn_difficalty"
@@ -60,12 +55,7 @@
         <ImageButton
             android:id="@+id/level_chooser_btn_help"
             style="@style/OptionImageButton"
-            android:src="@drawable/help_black" />
-
-        <ImageButton
-            android:id="@+id/level_chooser_btn_leaderboard"
-            style="@style/OptionImageButton"
-            android:src="@drawable/leaderboard_black" />
+            android:src="@drawable/info" />
 
     </LinearLayout>
 

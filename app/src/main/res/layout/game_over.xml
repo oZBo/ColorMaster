@@ -97,16 +97,14 @@
         android:gravity="center_horizontal">
 
         <ImageButton
+            android:id="@+id/game_over_btn_share"
             style="@style/OptionImageButton"
             android:src="@drawable/share" />
 
         <ImageButton
+            android:id="@+id/game_over_btn_home"
             style="@style/OptionImageButton"
-            android:src="@drawable/share" />
-
-        <ImageButton
-            style="@style/OptionImageButton"
-            android:src="@drawable/leaderboard_black" />
+            android:src="@drawable/home" />
 
     </LinearLayout>
 

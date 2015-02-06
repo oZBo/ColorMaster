@@ -39,7 +39,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     private TextView tvLeftColor, tvRightColor, tvScore;
     private TextView tvGameOverScore, tvGameOverBest;
     private LinearLayout layoutLeftSide, layoutRightSide, layoutGameOver;
-    private ImageButton btnReplay;
+    private ImageButton btnReplay, btnHome, btnShare;
     private ProgressBar progressBarLeft, progressBarRight;
     private RelativeLayout layoutGameTutorial;
     private CheckBox cbDontShowTutorial;
@@ -75,6 +75,10 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         tvGameOverBest = (TextView) findViewById(R.id.game_over_tv_best);
         btnReplay = (ImageButton) findViewById(R.id.game_over_btn_replay);
         btnReplay.setOnClickListener(this);
+        btnHome = (ImageButton) findViewById(R.id.game_over_btn_home);
+        btnHome.setOnClickListener(this);
+        btnShare = (ImageButton) findViewById(R.id.game_over_btn_share);
+        btnShare.setOnClickListener(this);
 
     }
 
@@ -356,6 +360,12 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
                 }else{
                     cbDontShowTutorial.setChecked(true);
                 }
+                break;
+            case R.id.game_over_btn_home:
+                onBackPressed();
+                break;
+            case R.id.game_over_btn_share:
+                GameHelper.shareScore(this, "WOW! I scored " + score + "points in Color Master game on Android ");
                 break;
         }
     }

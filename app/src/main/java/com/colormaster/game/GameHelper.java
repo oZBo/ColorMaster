@@ -1,6 +1,7 @@
 package com.colormaster.game;
 
 import android.content.Context;
+import android.content.Intent;
 
 public class GameHelper {
 
@@ -68,6 +69,13 @@ public class GameHelper {
             default:
                 return 0;
         }
+    }
+
+    public static void shareScore(Context context, String body){
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, body);
+        context.startActivity(Intent.createChooser(sharingIntent, null));
     }
 
 }

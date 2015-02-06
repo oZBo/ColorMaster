@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 public class CustomFontTextView extends TextView {
 
+    //TODO remove unused fonts from assets directory
     public CustomFontTextView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
@@ -23,8 +24,7 @@ public class CustomFontTextView extends TextView {
     }
 
     private void init() {
-        Typeface tf = Typeface.createFromAsset(getContext().getAssets(),
-                "fonts/font_2.ttf");
+        Typeface tf = Typeface.createFromAsset(getContext().getAssets(),"fonts/font_3.ttf");
         setTypeface(tf);
     }
 
