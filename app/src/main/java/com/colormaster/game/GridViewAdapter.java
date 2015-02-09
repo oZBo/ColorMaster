@@ -1,7 +1,6 @@
 package com.colormaster.game;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +60,7 @@ public class GridViewAdapter extends BaseAdapter {
         }
 
         holder.colorName.setText(colorsList.get(position).getColorName());
-        holder.color.getDrawable().setColorFilter(colorsList.get(position).getColor(), PorterDuff.Mode.MULTIPLY);
+        holder.color.setImageResource(colorsList.get(position).getColor());
         return convertView;
     }
 }

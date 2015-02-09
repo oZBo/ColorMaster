@@ -91,83 +91,50 @@ class ColorHelper {
         }
     }
 
-    public static Drawable getColorImageBackground(Context mContext, int colorNumber){
-        int randomSeedBackground = random.nextInt(3);
-        switch (colorNumber){
-            case 0: //RED
-                switch(randomSeedBackground){
-                    case 0:
-                        return mContext.getResources().getDrawable(R.drawable.red_bg_1);
-                    case 1:
-                        return mContext.getResources().getDrawable(R.drawable.red_bg_2);
-                    case 2:
-                        return mContext.getResources().getDrawable(R.drawable.red_bg_3);
-                }
-                break;
-            case 1: // ORANGE
-                switch(randomSeedBackground){
-                    case 0:
-                        return mContext.getResources().getDrawable(R.drawable.orange_bg_1);
-                    case 1:
-                        return mContext.getResources().getDrawable(R.drawable.orange_bg_2);
-                    case 2:
-                        return mContext.getResources().getDrawable(R.drawable.orange_bg_3);
-                }
-                break;
-            case 2: //YELLOW
-                switch(randomSeedBackground){
-                    case 0:
-                        return mContext.getResources().getDrawable(R.drawable.yellow_bg_1);
-                    case 1:
-                        return mContext.getResources().getDrawable(R.drawable.yellow_bg_2);
-                    case 2:
-                        return mContext.getResources().getDrawable(R.drawable.yellow_bg_3);
-                }
-                break;
-            case 3: //GREEN
-                switch(randomSeedBackground){
-                    case 0:
-                        return mContext.getResources().getDrawable(R.drawable.green_bg_1);
-                    case 1:
-                        return mContext.getResources().getDrawable(R.drawable.green_bg_2);
-                    case 2:
-                        return mContext.getResources().getDrawable(R.drawable.green_bg_3);
-                }
-                break;
-            case 4: //BLUE
-                switch(randomSeedBackground){
-                    case 0:
-                        return mContext.getResources().getDrawable(R.drawable.blue_bg_1);
-                    case 1:
-                        return mContext.getResources().getDrawable(R.drawable.blue_bg_2);
-                    case 2:
-                        return mContext.getResources().getDrawable(R.drawable.blue_bg_3);
-                }
-                break;
-            case 5: //INDIGO
-                switch(randomSeedBackground){
-                    case 0:
-                        return mContext.getResources().getDrawable(R.drawable.indigo_bg_1);
-                    case 1:
-                        return mContext.getResources().getDrawable(R.drawable.indigo_bg_2);
-                    case 2:
-                        return mContext.getResources().getDrawable(R.drawable.indigo_bg_3);
-                }
-                break;
-            case 6: //VIOLET
-                switch(randomSeedBackground){
-                    case 0:
-                        return mContext.getResources().getDrawable(R.drawable.violet_bg_1);
-                    case 1:
-                        return mContext.getResources().getDrawable(R.drawable.violet_bg_2);
-                    case 2:
-                        return mContext.getResources().getDrawable(R.drawable.violet_bg_3);
-                }
-                break;
+    public static Drawable getColorImageBackground(Context mContext, int colorNumber) {
+        int randomSeedBackground = random.nextInt(18);
+        switch (randomSeedBackground) {
+            case 0:
+                return mContext.getResources().getDrawable(R.drawable.bg_1);
+            case 1:
+                return mContext.getResources().getDrawable(R.drawable.bg_2);
+            case 2:
+                return mContext.getResources().getDrawable(R.drawable.bg_3);
+            case 3:
+                return mContext.getResources().getDrawable(R.drawable.bg_4);
+            case 4:
+                return mContext.getResources().getDrawable(R.drawable.bg_5);
+            case 5:
+                return mContext.getResources().getDrawable(R.drawable.bg_6);
+            case 6:
+                return mContext.getResources().getDrawable(R.drawable.bg_7);
+            case 7:
+                return mContext.getResources().getDrawable(R.drawable.bg_8);
+            case 8:
+                return mContext.getResources().getDrawable(R.drawable.bg_9);
+            case 9:
+                return mContext.getResources().getDrawable(R.drawable.bg_10);
+            case 10:
+                return mContext.getResources().getDrawable(R.drawable.bg_11);
+            case 11:
+                return mContext.getResources().getDrawable(R.drawable.bg_12);
+            case 12:
+                return mContext.getResources().getDrawable(R.drawable.bg_13);
+            case 13:
+                return mContext.getResources().getDrawable(R.drawable.bg_14);
+            case 14:
+                return mContext.getResources().getDrawable(R.drawable.bg_15);
+            case 15:
+                return mContext.getResources().getDrawable(R.drawable.bg_16);
+            case 16:
+                return mContext.getResources().getDrawable(R.drawable.bg_17);
+            case 17:
+                return mContext.getResources().getDrawable(R.drawable.bg_18);
+            case 18:
+                return  mContext.getResources().getDrawable(R.drawable.bg_19);
             default:
-                return mContext.getResources().getDrawable(R.drawable.abc_btn_radio_material);
+                return null;
         }
-        return null;
     }
 }
 

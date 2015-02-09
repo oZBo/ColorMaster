@@ -10,7 +10,8 @@
         <activity
             android:name=".activities.LevelChooser"
             android:label="@string/app_name"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,17 +19,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.LevelEasy"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".activities.LevelSurvival"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name=".activities.LevelMedium"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name=".activities.ColorLibrary"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
     </application>
 

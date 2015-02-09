@@ -9,7 +9,7 @@ public class LevelMedium extends LevelParent {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.level_mirror);
+        setContentView(R.layout.level_medium);
         initViews();
         initAnimations();
         initTutorialView();

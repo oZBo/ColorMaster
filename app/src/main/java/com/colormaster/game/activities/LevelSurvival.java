@@ -11,7 +11,7 @@ public class LevelSurvival extends LevelParent {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.level_screen);
+        setContentView(R.layout.level_easy);
         initViews();
         initAnimations();
         initTutorialView();
