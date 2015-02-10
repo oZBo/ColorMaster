@@ -22,7 +22,7 @@ import com.colormaster.game.R;
 
 public class LevelParent extends Activity implements View.OnTouchListener, View.OnClickListener {
 
-    private final static int TAP_RADIUS_RANGE = 20;//set up value to definate tap or not
+    private final static int TAP_RADIUS_RANGE = 30;//set up value to definate tap or not
     private final static int COUNT_DOWN_INTERVAL = 10; //Interval to update timers. MilliSeconds
     private final static int GAME_OVER_ANIM_DURATION = 500; //Anim duration of the game over overlay. Milliseconds
 

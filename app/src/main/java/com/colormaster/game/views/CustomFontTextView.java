@@ -24,7 +24,7 @@ public class CustomFontTextView extends TextView {
     }
 
     private void init() {
-        Typeface tf = Typeface.createFromAsset(getContext().getAssets(),"fonts/font_3.ttf");
+        Typeface tf = Typeface.createFromAsset(getContext().getAssets(),"fonts/font_2.ttf");
         setTypeface(tf);
     }
 

@@ -5,22 +5,15 @@
 
     <!--Color names-->
     <string name="color_red">Red</string>
-    <string name="color_pink">pink</string>
-    <string name="color_purple">purple</string>
-    <string name="color_deep_purple">deep_purple</string>
-    <string name="color_indigo">indigo</string>
-    <string name="color_blue">blue</string>
-    <string name="color_cyan">cyan</string>
-    <string name="color_teal">teal</string>
-    <string name="color_green">green</string>
-    <string name="color_light_green">light_green</string>
-    <string name="color_lime">lime</string>
-    <string name="color_yellow">yellow</string>
-    <string name="color_amber">amber</string>
-    <string name="color_orange">orange</string>
-    <string name="color_deep_orange">deep_orange</string>
-    <string name="color_brown">brown</string>
-    <string name="color_grey">grey</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_purple">Purple</string>
+    <string name="color_indigo">Indigo</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_teal">Teal</string>
+    <string name="color_green">Green</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_brown">Brown</string>
     <!--End color names-->
 
     <!--App strings-->
@@ -36,9 +29,9 @@
     <string name="level_medium">Medium</string>
     <string name="level_hard">Hard</string>
 
-    <string name="share_dialog_part_1">WOW! I scored </string>
-    <string name="share_dialog_part_2"> points in Color Master game on Android </string>
-    <string name="share_dialog_part_3"> "linkToTheGameOnAndroidMarket"</string>
+    <string name="share_dialog_part_1">WOW! I scored&#160;</string>
+    <string name="share_dialog_part_2">&#160;points in Color Master game on Android </string>
+    <string name="share_dialog_part_3">&#160;linkToTheGameOnAndroidMarket&#160;</string>
     <!--End app strings-->
 
     <!--Strings for appRaterDialog-->

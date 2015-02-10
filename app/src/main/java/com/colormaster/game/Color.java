@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Color {
 
-    private static final int COLORS_NUMBER = 16;
+    private static final int COLORS_NUMBER = 10;
 
     private int colorValue;
     private Drawable parentLayoutBgImage;
