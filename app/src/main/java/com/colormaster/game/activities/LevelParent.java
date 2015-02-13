@@ -11,10 +11,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.colormaster.game.Color;
@@ -44,7 +44,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     private LinearLayout layoutLeftSide, layoutRightSide, layoutGameOver;
     private ImageButton btnReplay, btnHome, btnShare;
     private ProgressBar progressBarLeft, progressBarRight;
-    private RelativeLayout layoutGameTutorial;
+    private FrameLayout layoutGameTutorial;
     private CheckBox cbDontShowTutorial;
 
     private Color colorLeft, colorRight;
@@ -62,6 +62,13 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         initViews();
         initAnimations();
         initTutorialView();
+    }
+
+    @Override
+    protected void onPause() {
+        cancellCountDownTimers();
+        layoutGameOver.setVisibility(View.VISIBLE);
+        super.onPause();
     }
 
     protected void initViews() {
@@ -89,7 +96,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     }
 
     protected void initTutorialView() {
-        layoutGameTutorial = (RelativeLayout) findViewById(R.id.layout_tutorial);
+        layoutGameTutorial = (FrameLayout) findViewById(R.id.layout_tutorial);
         if (!PreferenceUtil.getBoolean(LevelParent.this, getString(R.string.prefkey_dont_show_tutorial), false)) {
             layoutGameTutorial.setOnClickListener(this);
 

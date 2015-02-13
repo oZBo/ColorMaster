@@ -1,6 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_tutorial"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.colormaster.game.views.CustomFontTextView
+                android:id="@+id/tv_left_side"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/tv_side_bg"
+                android:gravity="center"
+                android:text="@string/color_red"
+                android:textColor="@color/red"
+                android:textSize="60sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_left_side"
+                android:layout_toLeftOf="@id/tv_left_side"
+                android:src="@drawable/left_top" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.colormaster.game.views.CustomFontTextView
+                android:id="@+id/tv_right_side"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/tv_side_bg"
+                android:gravity="center"
+                android:text="@string/color_red"
+                android:textColor="@color/green"
+                android:textSize="60sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_right_side"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@id/tv_right_side"
+                android:src="@drawable/right_down" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fake_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="I"
+            android:visibility="invisible"
+            android:textSize="60sp"
+            android:textStyle="bold" />
+
+        <com.colormaster.game.views.CustomFontTextView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/fake_view"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            android:text="@string/tip"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <com.colormaster.game.views.CustomFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fake_view"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:text="@string/tap_to_continue"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:id="@+id/layout_dont_show_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_dont_show_again"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+
+            <com.colormaster.game.views.CustomFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="@string/tip_dont_show_again"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

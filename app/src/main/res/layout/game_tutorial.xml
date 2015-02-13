@@ -1,90 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_tutorial"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="visible"
-    android:orientation="vertical">
+    android:background="@drawable/main_screen_bg_9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.colormaster.game.views.CustomFontTextView
+                android:id="@+id/tv_left_side"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/tv_side_bg"
+                android:gravity="center"
+                android:text="@string/color_red"
+                android:textColor="@color/red"
+                android:textSize="60sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_left_side"
+                android:layout_toLeftOf="@id/tv_left_side"
+                android:src="@drawable/left_top" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.colormaster.game.views.CustomFontTextView
+                android:id="@+id/tv_right_side"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/tv_side_bg"
+                android:gravity="center"
+                android:text="@string/color_red"
+                android:textColor="@color/green"
+                android:textSize="60sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/tv_right_side"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@id/tv_right_side"
+                android:src="@drawable/right_down" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/layout_tutorial"
-        android:background="@color/grey_transperent_50"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/img_left_top"
-            android:layout_width="120dp"
+        <TextView
+            android:id="@+id/fake_view"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/swipe_left_side" />
+            android:layout_centerInParent="true"
+            android:text="I"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
 
-        <ImageView
-            android:id="@+id/img_right_top"
-            android:layout_width="120dp"
+        <com.colormaster.game.views.CustomFontTextView
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/swipe_right_side" />
+            android:layout_above="@id/fake_view"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            android:text="@string/tip"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black" />
+
+        <com.colormaster.game.views.CustomFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fake_view"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:text="@string/tap_to_continue"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black" />
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/img_right_top"
-            android:layout_toRightOf="@+id/img_left_top"
-            android:layout_toStartOf="@+id/img_right_top"
-            android:orientation="vertical"
-            android:weightSum="2">
+            android:id="@+id/layout_dont_show_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_dont_show_again"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
 
             <com.colormaster.game.views.CustomFontTextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:paddingTop="20dp"
-                android:text="@string/tip"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <com.colormaster.game.views.CustomFontTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/tap_to_continue"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:paddingBottom="20dp"
-                android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-            <LinearLayout
-                android:id="@+id/layout_dont_show_again"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:id="@+id/cb_dont_show_again"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center" />
-
-                <com.colormaster.game.views.CustomFontTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tip_dont_show_again"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            </LinearLayout>
+                android:paddingLeft="5dp"
+                android:text="@string/tip_dont_show_again"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
     </RelativeLayout>
 
-</LinearLayout>
+</FrameLayout>
