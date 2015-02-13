@@ -1,8 +1,10 @@
 package com.colormaster.game.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -25,6 +27,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     private final static int TAP_RADIUS_RANGE = 30;//set up value to definate tap or not
     private final static int COUNT_DOWN_INTERVAL = 10; //Interval to update timers. MilliSeconds
     private final static int GAME_OVER_ANIM_DURATION = 500; //Anim duration of the game over overlay. Milliseconds
+    private final static int VIBRATOR_INTERVAL = 250; //Device vibration interval. Milliseconds
 
     private final static int LEFT_SIDE = 101;
     private final static int RIGHT_SIDE = 102;
@@ -48,11 +51,14 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     private CountDownTimer countDownTimerLeft, countDownTimerRight;
     private Animation fadeIn, fadeOut;
 
+    private Vibrator vibrator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         gameDifficalty = getIntent().getIntExtra(getString(R.string.prefkey_game_difficalty), 1);
         setContentView(R.layout.level_medium);
+        vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
         initViews();
         initAnimations();
         initTutorialView();
@@ -93,9 +99,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
             cbDontShowTutorial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if(isChecked){
-                        PreferenceUtil.putBoolean(LevelParent.this, getString(R.string.prefkey_dont_show_tutorial), true);
-                    }
+                        PreferenceUtil.putBoolean(LevelParent.this, getString(R.string.prefkey_dont_show_tutorial), isChecked);
                 }
             });
         }else{
@@ -317,6 +321,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         if (score > GameHelper.loadBestScore(LevelParent.this, gameDifficalty)) {
             GameHelper.saveBestScore(LevelParent.this, gameDifficalty, score);
         }
+        vibrator.vibrate(VIBRATOR_INTERVAL);
         layoutGameOver.startAnimation(fadeIn);
     }
 

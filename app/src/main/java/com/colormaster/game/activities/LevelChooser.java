@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.colormaster.game.GameHelper;
 import com.colormaster.game.R;
+import com.colormaster.game.Toaster;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 
 public class LevelChooser extends Activity implements View.OnClickListener {
@@ -22,6 +22,7 @@ public class LevelChooser extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
+        Toaster.init(this);
         easyRatingDialog = new EasyRatingDialog(this);
         btnGameDifficalty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
         btnGameDifficalty.setOnClickListener(this);
@@ -54,15 +55,15 @@ public class LevelChooser extends Activity implements View.OnClickListener {
                     case 1:
                         btnGameDifficalty.setImageResource(R.drawable.game_difficalty_2);
                         gameDifficalty = 2;
-                        GameHelper.showToast(this, getString(R.string.level_medium));
+                        Toaster.toast(getString(R.string.level_medium));
                         break;
                     case 2:
                         btnGameDifficalty.setImageResource(R.drawable.game_difficalty_1);
                         gameDifficalty = 1;
-                        GameHelper.showToast(this, getString(R.string.level_easy));
+                        Toaster.toast(getString(R.string.level_easy));
                         break;
                     case 3:
-                        GameHelper.showToast(this, getString(R.string.level_hard));
+                        Toaster.toast(getString(R.string.level_hard));
                         break;
                 }
                 break;
