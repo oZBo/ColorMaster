@@ -29,6 +29,10 @@
     <string name="level_medium">Medium</string>
     <string name="level_hard">Hard</string>
 
+    <string name="signin_other_error">There was an issue with sign in.  Please try again later.</string>
+    <string name="signin_failure">Unable to sign in.</string>
+    <string name="check_internet">Please check your internet connection!</string>
+
     <string name="share_dialog_part_1">WOW! I scored&#160;</string>
     <string name="share_dialog_part_2">&#160;points in Color Master game on Android </string>
     <string name="share_dialog_part_3">&#160;linkToTheGameOnAndroidMarket&#160;</string>

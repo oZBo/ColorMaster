@@ -1,20 +1,21 @@
 package com.colormaster.game.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.colormaster.game.GameHelper;
 import com.colormaster.game.R;
 import com.colormaster.game.Toaster;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
+import com.google.android.gms.games.Games;
 
-public class LevelChooser extends Activity implements View.OnClickListener {
+public class LevelChooser extends GooglePlayAuthorization implements View.OnClickListener {
 
     private int gameDifficalty = 1; //value from 1 to 3
 
-    private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay;
+    private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard;
 
     private EasyRatingDialog easyRatingDialog;
 
@@ -32,18 +33,8 @@ public class LevelChooser extends Activity implements View.OnClickListener {
         btnMarkapp.setOnClickListener(this);
         btnPlay = (ImageButton) findViewById(R.id.level_chooser_btn_play);
         btnPlay.setOnClickListener(this);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        easyRatingDialog.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        easyRatingDialog.showIfNeeded();
+        btnLedaerboard = (ImageButton) findViewById(R.id.level_chooser_btn_leaderboard);
+        btnLedaerboard.setOnClickListener(this);
     }
 
     @Override
@@ -73,6 +64,13 @@ public class LevelChooser extends Activity implements View.OnClickListener {
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.level_chooser_btn_markapp:
+                //TODO uncomment "go to the market" functionality
+//                final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+//                try {
+//                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+//                } catch (android.content.ActivityNotFoundException anfe) {
+//                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+//                }
                 break;
             case R.id.level_chooser_btn_play:
                 switch (gameDifficalty) {
@@ -88,6 +86,30 @@ public class LevelChooser extends Activity implements View.OnClickListener {
                 startActivity(nextActivity);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
+            case R.id.level_chooser_btn_leaderboard:
+                if (GameHelper.haveNetworkConnection(this)) {
+                    try {
+                        startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(mGoogleApiClient),
+                                RC_UNUSED);
+                    } catch (Exception ex) {
+                        mGoogleApiClient.connect();
+                    }
+                }else{
+                    Toaster.toast(getString(R.string.check_internet));
+                }
+                break;
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        easyRatingDialog.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        easyRatingDialog.showIfNeeded();
     }
 }

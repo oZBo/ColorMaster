@@ -21,6 +21,9 @@ import com.colormaster.game.Color;
 import com.colormaster.game.GameHelper;
 import com.colormaster.game.PreferenceUtil;
 import com.colormaster.game.R;
+import com.colormaster.game.Toaster;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
 
 public class LevelParent extends Activity implements View.OnTouchListener, View.OnClickListener {
 
@@ -42,7 +45,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
     private TextView tvLeftColor, tvRightColor, tvScore;
     private TextView tvGameOverScore, tvGameOverBest;
     private LinearLayout layoutLeftSide, layoutRightSide, layoutGameOver;
-    private ImageButton btnReplay, btnHome, btnShare;
+    private ImageButton btnReplay, btnHome, btnShare, btnLeaderboard;
     private ProgressBar progressBarLeft, progressBarRight;
     private FrameLayout layoutGameTutorial;
     private CheckBox cbDontShowTutorial;
@@ -59,6 +62,8 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         gameDifficalty = getIntent().getIntExtra(getString(R.string.prefkey_game_difficalty), 1);
         setContentView(R.layout.level_medium);
         vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
+        score = 0;
+        Toaster.init(this);
         initViews();
         initAnimations();
         initTutorialView();
@@ -92,6 +97,8 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         btnHome.setOnClickListener(this);
         btnShare = (ImageButton) findViewById(R.id.game_over_btn_share);
         btnShare.setOnClickListener(this);
+        btnLeaderboard = (ImageButton) findViewById(R.id.game_over_leaderboard);
+        btnLeaderboard.setOnClickListener(this);
 
     }
 
@@ -106,10 +113,10 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
             cbDontShowTutorial.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        PreferenceUtil.putBoolean(LevelParent.this, getString(R.string.prefkey_dont_show_tutorial), isChecked);
+                    PreferenceUtil.putBoolean(LevelParent.this, getString(R.string.prefkey_dont_show_tutorial), isChecked);
                 }
             });
-        }else{
+        } else {
             layoutGameTutorial.setVisibility(View.GONE);
             startLevel();
         }
@@ -131,7 +138,6 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
             @Override
             public void onAnimationEnd(Animation animation) {
                 btnReplay.setClickable(true);
-                score = 0;
             }
 
             @Override
@@ -145,6 +151,7 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
         fadeOut.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
+                score = 0;
                 tvScore.setText("" + score);
                 btnReplay.setClickable(false);
                 progressBarLeft.setProgress(progressBarLeft.getMax());
@@ -367,9 +374,9 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
                 layoutGameOver.startAnimation(fadeOut);
                 break;
             case R.id.layout_dont_show_again:
-                if(cbDontShowTutorial.isChecked()){
+                if (cbDontShowTutorial.isChecked()) {
                     cbDontShowTutorial.setChecked(false);
-                }else{
+                } else {
                     cbDontShowTutorial.setChecked(true);
                 }
                 break;
@@ -379,6 +386,45 @@ public class LevelParent extends Activity implements View.OnTouchListener, View.
             case R.id.game_over_btn_share:
                 GameHelper.shareScore(this, getString(R.string.share_dialog_part_1) + score + getString(R.string.share_dialog_part_2) + getString(R.string.share_dialog_part_3));
                 break;
+            case R.id.game_over_leaderboard:
+                pushAccomplishments(score);
+                break;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    void pushAccomplishments(int score) {
+        if (GameHelper.haveNetworkConnection(this)) {
+            GoogleApiClient googleApiClient = GooglePlayAuthorization.getGoogleApiClient();
+            try {
+                switch (gameDifficalty) {
+                    case 1:
+                        Games.Leaderboards.submitScore(googleApiClient, getString(R.string.leaderboard_easy),
+                                score);
+                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient, getString(R.string.leaderboard_easy)),
+                                5000);
+                        break;
+                    case 2:
+                        Games.Leaderboards.submitScore(googleApiClient, getString(R.string.leaderboard_hard),
+                                score);
+                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient, getString(R.string.leaderboard_hard)),
+                                5000);
+                        break;
+                }
+            } catch (Exception ex) {
+                Toaster.toast(getString(R.string.signin_other_error));
+            }
+        } else {
+            Toaster.toast(getString(R.string.check_internet));
         }
     }
 
