@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.colormaster.game.R;
 
-public class LevelSurvival extends LevelParent {
+public class LevelEasy extends LevelParent {
 
 
 

@@ -75,7 +75,7 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
             case R.id.level_chooser_btn_play:
                 switch (gameDifficalty) {
                     case 1:
-                        nextActivity = new Intent(this, LevelSurvival.class);
+                        nextActivity = new Intent(this, LevelEasy.class);
                         nextActivity.putExtra(getString(R.string.prefkey_game_difficalty), gameDifficalty);
                         break;
                     case 2:

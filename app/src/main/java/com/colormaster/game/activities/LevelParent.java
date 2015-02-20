@@ -1,10 +1,10 @@
 package com.colormaster.game.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
+import android.support.v4.app.FragmentActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -25,7 +25,7 @@ import com.colormaster.game.Toaster;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 
-public class LevelParent extends Activity implements View.OnTouchListener, View.OnClickListener {
+public class LevelParent extends FragmentActivity implements View.OnTouchListener, View.OnClickListener {
 
     private final static int TAP_RADIUS_RANGE = 30;//set up value to definate tap or not
     private final static int COUNT_DOWN_INTERVAL = 10; //Interval to update timers. MilliSeconds
