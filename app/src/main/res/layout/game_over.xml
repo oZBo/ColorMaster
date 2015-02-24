@@ -99,7 +99,7 @@
         <ImageButton
             android:id="@+id/game_over_leaderboard"
             style="@style/OptionImageButton"
-            android:src="@drawable/leaderboard_black" />
+            android:src="@drawable/leaderboard" />
 
         <ImageButton
             android:id="@+id/game_over_btn_share"

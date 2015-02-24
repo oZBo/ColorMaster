@@ -14,8 +14,9 @@ import com.google.android.gms.games.Games;
 public class LevelChooser extends GooglePlayAuthorization implements View.OnClickListener {
 
     private int gameDifficalty = 1; //value from 1 to 3
+    private boolean isSoundsOn = true;
 
-    private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard;
+    private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
 
     private EasyRatingDialog easyRatingDialog;
 
@@ -35,6 +36,8 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
         btnPlay.setOnClickListener(this);
         btnLedaerboard = (ImageButton) findViewById(R.id.level_chooser_btn_leaderboard);
         btnLedaerboard.setOnClickListener(this);
+        btnSounds = (ImageButton) findViewById(R.id.level_chooser_btn_sounds);
+        btnSounds.setOnClickListener(this);
     }
 
     @Override
@@ -94,12 +97,22 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
                     } catch (Exception ex) {
                         mGoogleApiClient.connect();
                     }
-                }else{
+                } else {
                     Toaster.toast(getString(R.string.check_internet));
                 }
                 break;
-        }
+            case R.id.level_chooser_btn_sounds:
+                if (isSoundsOn) {
+                    isSoundsOn = false;
+                    btnSounds.setImageResource(R.drawable.sound_off);
+                } else {
+                    isSoundsOn = true;
+                    btnSounds.setImageResource(R.drawable.sound_on);
+                }
+        break;
     }
+
+}
 
     @Override
     protected void onStart() {
