@@ -45,7 +45,7 @@ public class GameHelper {
         } else if (score <= 70 && score > 65) {
             return 1250;
         }
-        return 1;
+        return 1000;
     }
 
     public static void saveBestScore(Context context, int gameDifficaltyKey, int score){

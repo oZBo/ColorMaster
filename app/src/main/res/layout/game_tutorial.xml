@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/tv_left_side"
                 android:layout_toLeftOf="@id/tv_left_side"
-                android:src="@drawable/left_top" />
+                android:src="@drawable/left_incorrect" />
 
         </RelativeLayout>
 
@@ -60,7 +60,7 @@
                 android:layout_above="@id/tv_right_side"
                 android:layout_centerInParent="true"
                 android:layout_toRightOf="@id/tv_right_side"
-                android:src="@drawable/right_down" />
+                android:src="@drawable/right_correct" />
 
         </RelativeLayout>
 

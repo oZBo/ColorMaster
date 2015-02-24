@@ -17,6 +17,7 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
     private boolean isSoundsOn = true;
 
     private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
+    private Toaster toaster;
 
     private EasyRatingDialog easyRatingDialog;
 
@@ -24,7 +25,7 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
-        Toaster.init(this);
+        toaster = Toaster.init(this);
         easyRatingDialog = new EasyRatingDialog(this);
         btnGameDifficalty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
         btnGameDifficalty.setOnClickListener(this);
@@ -49,15 +50,15 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
                     case 1:
                         btnGameDifficalty.setImageResource(R.drawable.game_difficalty_2);
                         gameDifficalty = 2;
-                        Toaster.toast(getString(R.string.level_medium));
+                        toaster.toast(getString(R.string.level_medium));
                         break;
                     case 2:
                         btnGameDifficalty.setImageResource(R.drawable.game_difficalty_1);
                         gameDifficalty = 1;
-                        Toaster.toast(getString(R.string.level_easy));
+                        toaster.toast(getString(R.string.level_easy));
                         break;
                     case 3:
-                        Toaster.toast(getString(R.string.level_hard));
+                        toaster.toast(getString(R.string.level_hard));
                         break;
                 }
                 break;
@@ -98,16 +99,16 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
                         mGoogleApiClient.connect();
                     }
                 } else {
-                    Toaster.toast(getString(R.string.check_internet));
+                    toaster.toast(getString(R.string.check_internet));
                 }
                 break;
             case R.id.level_chooser_btn_sounds:
                 if (isSoundsOn) {
                     isSoundsOn = false;
-                    btnSounds.setImageResource(R.drawable.sound_off);
+                    btnSounds.setImageResource(R.drawable.selector_sound_off);
                 } else {
                     isSoundsOn = true;
-                    btnSounds.setImageResource(R.drawable.sound_on);
+                    btnSounds.setImageResource(R.drawable.selector_sound_on);
                 }
         break;
     }

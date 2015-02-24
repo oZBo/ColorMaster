@@ -25,8 +25,8 @@
     <string name="tip_dont_show_again">Do not show this tip again</string>
     <string name="left_side">LEFT</string>
     <string name="right_side">RIGHT</string>
-    <string name="level_easy">EasieR</string>
-    <string name="level_medium">HardeR</string>
+    <string name="level_easy">easier</string>
+    <string name="level_medium">harder</string>
     <string name="level_hard">Hard</string>
 
     <string name="signin_other_error">There was an issue with sign in.  Please try again later.</string>

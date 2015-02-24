@@ -22,10 +22,12 @@ public class GooglePlayAuthorization extends BaseGameActivity implements GoogleA
     private boolean mResolvingConnectionFailure = false;
     private boolean mAutoStartSignInflow = true;
 
+    private Toaster toaster;
+
     @Override
     protected void onCreate(Bundle b) {
         super.onCreate(b);
-
+        toaster = Toaster.init(this);
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -102,7 +104,7 @@ public class GooglePlayAuthorization extends BaseGameActivity implements GoogleA
             if (resultCode == RESULT_OK) {
                 mGoogleApiClient.connect();
             } else {
-                Toaster.toast(getString(R.string.signin_other_error));
+                toaster.toast(getString(R.string.signin_other_error));
             }
         }
     }

@@ -97,8 +97,8 @@
 
     <com.colormaster.game.views.CustomFontTextView
         android:id="@+id/tv_score"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
         android:text="0"

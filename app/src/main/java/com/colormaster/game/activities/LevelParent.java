@@ -56,6 +56,8 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
 
     private Vibrator vibrator;
 
+    private Toaster toaster;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +65,7 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
         setContentView(R.layout.level_medium);
         vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
         score = 0;
-        Toaster.init(this);
+        toaster = Toaster.init(this);
         initViews();
         initAnimations();
         initTutorialView();
@@ -421,10 +423,10 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
                         break;
                 }
             } catch (Exception ex) {
-                Toaster.toast(getString(R.string.signin_other_error));
+                toaster.toast(getString(R.string.signin_other_error));
             }
         } else {
-            Toaster.toast(getString(R.string.check_internet));
+            toaster.toast(getString(R.string.check_internet));
         }
     }
 

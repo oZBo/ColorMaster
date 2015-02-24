@@ -99,17 +99,17 @@
         <ImageButton
             android:id="@+id/game_over_leaderboard"
             style="@style/OptionImageButton"
-            android:src="@drawable/leaderboard" />
+            android:src="@drawable/selector_leaderboard" />
 
         <ImageButton
             android:id="@+id/game_over_btn_share"
             style="@style/OptionImageButton"
-            android:src="@drawable/share" />
+            android:src="@drawable/selector_share" />
 
         <ImageButton
             android:id="@+id/game_over_btn_home"
             style="@style/OptionImageButton"
-            android:src="@drawable/home" />
+            android:src="@drawable/selector_home" />
 
     </LinearLayout>
 
