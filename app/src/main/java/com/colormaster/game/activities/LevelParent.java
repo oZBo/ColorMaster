@@ -337,6 +337,7 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
         if (score > GameHelper.loadBestScore(LevelParent.this, gameDifficalty)) {
             GameHelper.saveBestScore(LevelParent.this, gameDifficalty, score);
         }
+        pushAccomplishments(score, false);
         vibrator.vibrate(VIBRATOR_INTERVAL);
         layoutGameOver.startAnimation(fadeIn);
     }
@@ -389,7 +390,7 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
                 GameHelper.shareScore(this, getString(R.string.share_dialog_part_1) + score + getString(R.string.share_dialog_part_2) + getString(R.string.share_dialog_part_3));
                 break;
             case R.id.game_over_leaderboard:
-                pushAccomplishments(score);
+                pushAccomplishments(score, true);
                 break;
         }
     }
@@ -404,22 +405,20 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
         super.onStop();
     }
 
-    void pushAccomplishments(int score) {
+    void pushAccomplishments(int score, boolean canShowLeaderboard) {
         if (GameHelper.haveNetworkConnection(this)) {
             GoogleApiClient googleApiClient = GooglePlayAuthorization.getGoogleApiClient();
             try {
                 switch (gameDifficalty) {
                     case 1:
-                        Games.Leaderboards.submitScore(googleApiClient, getString(R.string.leaderboard_easy),
-                                score);
-                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient, getString(R.string.leaderboard_easy)),
-                                5000);
+                        Games.Leaderboards.submitScore(googleApiClient, getString(R.string.leaderboard_easy), score);
+                        if (canShowLeaderboard)
+                            startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient, getString(R.string.leaderboard_easy)), 5000);
                         break;
                     case 2:
-                        Games.Leaderboards.submitScore(googleApiClient, getString(R.string.leaderboard_hard),
-                                score);
-                        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient, getString(R.string.leaderboard_hard)),
-                                5000);
+                        Games.Leaderboards.submitScore(googleApiClient, getString(R.string.leaderboard_hard), score);
+                        if (canShowLeaderboard)
+                            startActivityForResult(Games.Leaderboards.getLeaderboardIntent(googleApiClient, getString(R.string.leaderboard_hard)), 5000);
                         break;
                 }
             } catch (Exception ex) {

@@ -23,7 +23,7 @@
         android:id="@+id/game_over_btn_replay"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/play_black"
+        android:src="@drawable/selector_play"
         android:background="@android:color/transparent"
         android:clickable="false"
         android:scaleType="centerInside"/>
