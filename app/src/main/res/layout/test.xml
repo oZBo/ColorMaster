@@ -13,8 +13,8 @@
     <com.viewpagerindicator.CirclePageIndicator
         android:id="@+id/indicator"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
         android:layout_margin="5dp" />
 
 </FrameLayout>

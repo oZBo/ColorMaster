@@ -7,12 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.colormaster.game.R;
+import com.colormaster.game.views.CustomFontTextView;
 
 public class GameRulesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.game_tutorial, container, false);
+        CustomFontTextView textView = (CustomFontTextView) v.findViewById(R.id.tutorial_tv_tap_to_cont);
+        textView.setVisibility(View.INVISIBLE);
         return v;
     }
 

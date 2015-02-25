@@ -6,8 +6,6 @@ import com.colormaster.game.R;
 
 public class LevelEasy extends LevelParent {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
