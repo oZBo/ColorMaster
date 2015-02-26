@@ -103,8 +103,6 @@ public class GooglePlayAuthorization extends BaseGameActivity implements GoogleA
             mResolvingConnectionFailure = false;
             if (resultCode == RESULT_OK) {
                 mGoogleApiClient.connect();
-            } else {
-                toaster.toast(getString(R.string.signin_other_error));
             }
         }
     }

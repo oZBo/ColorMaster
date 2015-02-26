@@ -107,12 +107,11 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
     }
 
     protected void initTutorialView() {
+        layoutGameTutorial = (FrameLayout) findViewById(R.id.layout_tutorial);
+        layoutColorLibrary = (FrameLayout) findViewById(R.id.layout_color_library);
 
         if (!PreferenceUtil.getBoolean(LevelParent.this, getString(R.string.prefkey_dont_show_tutorial), false)) {
-            layoutGameTutorial = (FrameLayout) findViewById(R.id.layout_tutorial);
-            layoutColorLibrary = (FrameLayout) findViewById(R.id.layout_color_library);
             layoutGameTutorial.setOnClickListener(this);
-
             ArrayList<LibraryColorObject> colorsList = new ArrayList<>();
             LibraryColorObject red = new LibraryColorObject(R.drawable.red, getString(R.string.color_red));
             LibraryColorObject pink = new LibraryColorObject(R.drawable.pink, getString(R.string.color_pink));
