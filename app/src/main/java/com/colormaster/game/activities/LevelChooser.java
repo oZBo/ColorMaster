@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 
 import com.colormaster.game.GameHelper;
 import com.colormaster.game.R;
+import com.colormaster.game.SoundManager;
 import com.colormaster.game.Toaster;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.android.gms.games.Games;
@@ -18,6 +19,7 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
 
     private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
     private Toaster toaster;
+    private SoundManager soundManager;
 
     private EasyRatingDialog easyRatingDialog;
 
@@ -26,6 +28,7 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_screen);
         toaster = Toaster.init(this);
+        soundManager = SoundManager.getInstance(this);
         easyRatingDialog = new EasyRatingDialog(this);
         btnGameDifficalty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
         btnGameDifficalty.setOnClickListener(this);
@@ -110,10 +113,10 @@ public class LevelChooser extends GooglePlayAuthorization implements View.OnClic
                     isSoundsOn = true;
                     btnSounds.setImageResource(R.drawable.selector_sound_on);
                 }
-        break;
-    }
+                break;
+        }
 
-}
+    }
 
     @Override
     protected void onStart() {

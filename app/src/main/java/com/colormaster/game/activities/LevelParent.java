@@ -22,6 +22,7 @@ import com.colormaster.game.GridViewAdapter;
 import com.colormaster.game.LibraryColorObject;
 import com.colormaster.game.PreferenceUtil;
 import com.colormaster.game.R;
+import com.colormaster.game.SoundManager;
 import com.colormaster.game.Toaster;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -59,6 +60,7 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
     private Vibrator vibrator;
 
     private Toaster toaster;
+    private SoundManager soundManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,7 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
         vibrator = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
         score = 0;
         toaster = Toaster.init(this);
+        soundManager = SoundManager.getInstance(this);
         initViews();
         initAnimations();
         initTutorialView();
@@ -397,6 +400,7 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
     }
 
     private void endLevel() {
+        soundManager.play(R.raw.incorrect);
         if (score > GameHelper.loadBestScore(LevelParent.this, gameDifficalty)) {
             GameHelper.saveBestScore(LevelParent.this, gameDifficalty, score);
         }
@@ -413,7 +417,7 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
     }
 
     private void nextLevel(int side) {
-
+        soundManager.play(R.raw.correct);
         switch (side) {
             case LEFT_SIDE:
                 score++;

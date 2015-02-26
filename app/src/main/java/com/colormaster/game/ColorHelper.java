@@ -64,7 +64,7 @@ class ColorHelper {
     }
 
     public static Drawable getColorImageBackground(Context mContext, int colorNumber) {
-        int randomSeedBackground = random.nextInt(120);
+        int randomSeedBackground = random.nextInt(140);
         switch (randomSeedBackground) {
             case 0:
                 return mContext.getResources().getDrawable(R.drawable.bg_1);
@@ -306,6 +306,46 @@ class ColorHelper {
                 return  mContext.getResources().getDrawable(R.drawable.bg_119);
             case 119:
                 return  mContext.getResources().getDrawable(R.drawable.bg_120);
+            case 120:
+                return  mContext.getResources().getDrawable(R.drawable.bg_121);
+            case 121:
+                return  mContext.getResources().getDrawable(R.drawable.bg_122);
+            case 122:
+                return  mContext.getResources().getDrawable(R.drawable.bg_123);
+            case 123:
+                return  mContext.getResources().getDrawable(R.drawable.bg_124);
+            case 124:
+                return  mContext.getResources().getDrawable(R.drawable.bg_125);
+            case 125:
+                return  mContext.getResources().getDrawable(R.drawable.bg_126);
+            case 126:
+                return  mContext.getResources().getDrawable(R.drawable.bg_127);
+            case 127:
+                return  mContext.getResources().getDrawable(R.drawable.bg_128);
+            case 128:
+                return  mContext.getResources().getDrawable(R.drawable.bg_129);
+            case 129:
+                return  mContext.getResources().getDrawable(R.drawable.bg_130);
+            case 130:
+                return  mContext.getResources().getDrawable(R.drawable.bg_131);
+            case 131:
+                return  mContext.getResources().getDrawable(R.drawable.bg_132);
+            case 132:
+                return  mContext.getResources().getDrawable(R.drawable.bg_133);
+            case 133:
+                return  mContext.getResources().getDrawable(R.drawable.bg_134);
+            case 134:
+                return  mContext.getResources().getDrawable(R.drawable.bg_135);
+            case 135:
+                return  mContext.getResources().getDrawable(R.drawable.bg_136);
+            case 136:
+                return  mContext.getResources().getDrawable(R.drawable.bg_137);
+            case 137:
+                return  mContext.getResources().getDrawable(R.drawable.bg_138);
+            case 138:
+                return  mContext.getResources().getDrawable(R.drawable.bg_139);
+            case 139:
+                return  mContext.getResources().getDrawable(R.drawable.bg_140);
             default:
                 return null;
         }
