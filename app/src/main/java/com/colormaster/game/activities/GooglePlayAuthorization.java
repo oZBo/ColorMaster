@@ -3,6 +3,7 @@ package com.colormaster.game.activities;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.colormaster.game.GameHelper;
 import com.colormaster.game.R;
 import com.colormaster.game.Toaster;
 import com.google.android.gms.common.ConnectionResult;
@@ -89,7 +90,9 @@ public class GooglePlayAuthorization extends BaseGameActivity implements GoogleA
     @Override
     protected void onStart() {
         super.onStart();
-        mGoogleApiClient.connect();
+        if(GameHelper.haveNetworkConnection(this)) {
+            mGoogleApiClient.connect();
+        }
     }
 
     @Override
