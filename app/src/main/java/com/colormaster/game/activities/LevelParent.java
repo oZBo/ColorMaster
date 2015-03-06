@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import com.colormaster.game.Color;
 import com.colormaster.game.GameHelper;
-import com.colormaster.game.GridViewAdapter;
+import com.colormaster.game.ColorsGridViewAdapter;
 import com.colormaster.game.LibraryColorObject;
 import com.colormaster.game.PreferenceUtil;
 import com.colormaster.game.R;
@@ -168,7 +168,7 @@ public class LevelParent extends FragmentActivity implements View.OnTouchListene
                     return false;
                 }
             });
-            GridViewAdapter adapter = new GridViewAdapter(this, colorsList);
+            ColorsGridViewAdapter adapter = new ColorsGridViewAdapter(this, colorsList);
             gridView.setAdapter(adapter);
         } else {
             layoutGameTutorial.setVisibility(View.GONE);

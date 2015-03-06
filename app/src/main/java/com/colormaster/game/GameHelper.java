@@ -4,11 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.widget.Toast;
 
 public class GameHelper {
-
-    private static Toast mToast;
 
     /**
      * @param score

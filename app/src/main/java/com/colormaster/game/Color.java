@@ -7,12 +7,10 @@ import java.util.Random;
 
 public class Color {
 
-    private static final int COLORS_NUMBER = 10;
+    private static final int COLORS_NUMBER = 10; //Numbers of colors that used in game
 
     private int colorValue;
     private Drawable parentLayoutBgImage;
-    private int textColorInactive;
-    private int parentLayoutColorInactive;
     private String colorText;
     private boolean colorSameAsText;
     private int randomColor;
@@ -25,8 +23,6 @@ public class Color {
         colorSameAsText = random.nextBoolean();
         colorValue = ColorHelper.getColorValue(mContext, randomColor);
         colorText = ColorHelper.getColorName(mContext, randomColor);
-        textColorInactive = mContext.getResources().getColor(R.color.green_200);
-        parentLayoutColorInactive = mContext.getResources().getColor(R.color.green_500);
         configureColors();
     }
 
@@ -44,14 +40,6 @@ public class Color {
         parentLayoutBgImage = ColorHelper.getColorImageBackground(mContext, tempLayoutColor);
     }
 
-    public int getTextColorInactive() {
-        return textColorInactive;
-    }
-
-    public int getParentLayoutColorInactive() {
-        return parentLayoutColorInactive;
-    }
-
     public int getColorValue() {
         return colorValue;
     }
@@ -64,8 +52,7 @@ public class Color {
         return parentLayoutBgImage;
     }
 
-    public boolean isColorSameAsText(){
-
+    public boolean isColorSameAsText() {
         return colorSameAsText;
     }
 

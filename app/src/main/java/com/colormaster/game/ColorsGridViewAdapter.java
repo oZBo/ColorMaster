@@ -14,7 +14,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by oZBo on 26.01.2015.
  */
-public class GridViewAdapter extends BaseAdapter {
+public class ColorsGridViewAdapter extends BaseAdapter {
 
     static class ViewHolder {
         TextView colorName;
@@ -24,7 +24,7 @@ public class GridViewAdapter extends BaseAdapter {
     private ArrayList<LibraryColorObject> colorsList;
     private Context mContext;
 
-    public GridViewAdapter(Context mContext, ArrayList<LibraryColorObject> colorsList) {
+    public ColorsGridViewAdapter(Context mContext, ArrayList<LibraryColorObject> colorsList) {
         this.mContext = mContext;
         this.colorsList = colorsList;
     }

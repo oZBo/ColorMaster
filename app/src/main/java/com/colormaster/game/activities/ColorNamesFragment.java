@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.colormaster.game.GridViewAdapter;
+import com.colormaster.game.ColorsGridViewAdapter;
 import com.colormaster.game.LibraryColorObject;
 import com.colormaster.game.R;
 
@@ -43,7 +43,7 @@ public class ColorNamesFragment extends Fragment {
         colorsList.add(brown);
 
         GridView gridView = (GridView)v.findViewById(R.id.gridview_color_library);
-        GridViewAdapter adapter = new GridViewAdapter(getActivity(), colorsList);
+        ColorsGridViewAdapter adapter = new ColorsGridViewAdapter(getActivity(), colorsList);
         gridView.setAdapter(adapter);
 
         return v;
