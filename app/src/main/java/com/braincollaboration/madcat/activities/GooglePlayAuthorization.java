@@ -1,11 +1,11 @@
-package com.colormaster.game.activities;
+package com.braincollaboration.madcat.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.colormaster.game.GameHelper;
-import com.colormaster.game.R;
-import com.colormaster.game.Toaster;
+import com.braincollaboration.madcat.GameHelper;
+import com.braincollaboration.madcat.R;
+import com.braincollaboration.madcat.Toaster;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;

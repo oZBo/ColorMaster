@@ -1,14 +1,14 @@
-package com.colormaster.game.activities;
+package com.braincollaboration.madcat.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.colormaster.game.GameHelper;
-import com.colormaster.game.R;
-import com.colormaster.game.SoundManager;
-import com.colormaster.game.Toaster;
+import com.braincollaboration.madcat.GameHelper;
+import com.braincollaboration.madcat.R;
+import com.braincollaboration.madcat.SoundManager;
+import com.braincollaboration.madcat.Toaster;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.android.gms.games.Games;
 

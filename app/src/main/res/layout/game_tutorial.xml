@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <com.colormaster.game.views.CustomFontTextView
+            <com.braincollaboration.madcat.views.CustomFontTextView
                 android:id="@+id/tv_left_side"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <com.colormaster.game.views.CustomFontTextView
+            <com.braincollaboration.madcat.views.CustomFontTextView
                 android:id="@+id/tv_right_side"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
             android:textStyle="bold"
             android:visibility="invisible" />
 
-        <com.colormaster.game.views.CustomFontTextView
+        <com.braincollaboration.madcat.views.CustomFontTextView
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_above="@id/fake_view"
@@ -91,7 +91,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/black" />
 
-        <com.colormaster.game.views.CustomFontTextView
+        <com.braincollaboration.madcat.views.CustomFontTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/fake_view"
@@ -102,7 +102,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/black" />
 
-        <com.colormaster.game.views.CustomFontTextView
+        <com.braincollaboration.madcat.views.CustomFontTextView
             android:id="@+id/tutorial_tv_tap_to_cont"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

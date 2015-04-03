@@ -1,11 +1,11 @@
-package com.colormaster.game;
+package com.braincollaboration.madcat;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.colormaster.game.activities.ColorNamesFragment;
-import com.colormaster.game.activities.GameRulesFragment;
+import com.braincollaboration.madcat.activities.ColorNamesFragment;
+import com.braincollaboration.madcat.activities.GameRulesFragment;
 
 public class TutorialPagerAdapter extends FragmentPagerAdapter {
 

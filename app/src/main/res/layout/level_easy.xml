@@ -23,7 +23,7 @@
                 android:progressDrawable="@drawable/progress_drawable"
                 android:paddingRight="2dp" />
 
-            <com.colormaster.game.views.MirroredProgressBar
+            <com.braincollaboration.madcat.views.MirroredProgressBar
                 android:id="@+id/progress_right"
                 style="@android:style/Widget.ProgressBar.Horizontal"
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.colormaster.game.views.CustomFontTextView
+                <com.braincollaboration.madcat.views.CustomFontTextView
                     android:id="@+id/tv_left_side"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.colormaster.game.views.CustomFontTextView
+                <com.braincollaboration.madcat.views.CustomFontTextView
                     android:id="@+id/tv_right_side"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
         android:src="@drawable/score_bg"
         android:layout_gravity="center"/>
 
-    <com.colormaster.game.views.CustomFontTextView
+    <com.braincollaboration.madcat.views.CustomFontTextView
         android:id="@+id/tv_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

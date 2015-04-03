@@ -1,4 +1,4 @@
-package com.colormaster.game;
+package com.braincollaboration.madcat;
 
 import android.content.Context;
 import android.content.Intent;

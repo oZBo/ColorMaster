@@ -1,4 +1,4 @@
-package com.colormaster.game;
+package com.braincollaboration.madcat;
 
 public class LibraryColorObject {
 

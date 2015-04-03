@@ -1,11 +1,11 @@
-package com.colormaster.game.activities;
+package com.braincollaboration.madcat.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
-import com.colormaster.game.R;
-import com.colormaster.game.TutorialPagerAdapter;
+import com.braincollaboration.madcat.R;
+import com.braincollaboration.madcat.TutorialPagerAdapter;
 import com.viewpagerindicator.CirclePageIndicator;
 
 public class ColorLibrary extends FragmentActivity {

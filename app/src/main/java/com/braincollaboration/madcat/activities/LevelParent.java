@@ -1,4 +1,4 @@
-package com.colormaster.game.activities;
+package com.braincollaboration.madcat.activities;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,14 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.colormaster.game.Color;
-import com.colormaster.game.GameHelper;
-import com.colormaster.game.ColorsGridViewAdapter;
-import com.colormaster.game.LibraryColorObject;
-import com.colormaster.game.PreferenceUtil;
-import com.colormaster.game.R;
-import com.colormaster.game.SoundManager;
-import com.colormaster.game.Toaster;
+import com.braincollaboration.madcat.Color;
+import com.braincollaboration.madcat.GameHelper;
+import com.braincollaboration.madcat.ColorsGridViewAdapter;
+import com.braincollaboration.madcat.LibraryColorObject;
+import com.braincollaboration.madcat.PreferenceUtil;
+import com.braincollaboration.madcat.R;
+import com.braincollaboration.madcat.SoundManager;
+import com.braincollaboration.madcat.Toaster;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 

@@ -1,15 +1,15 @@
-package com.colormaster.game.activities;
+package com.braincollaboration.madcat.activities;
 
 import android.os.Bundle;
 
-import com.colormaster.game.R;
+import com.braincollaboration.madcat.R;
 
-public class LevelMedium extends LevelParent {
+public class LevelEasy extends LevelParent {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.level_medium);
+        setContentView(R.layout.level_easy);
         initViews();
         initAnimations();
         initTutorialView();

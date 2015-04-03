@@ -1,4 +1,4 @@
-package com.colormaster.game.activities;
+package com.braincollaboration.madcat.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.colormaster.game.ColorsGridViewAdapter;
-import com.colormaster.game.LibraryColorObject;
-import com.colormaster.game.R;
+import com.braincollaboration.madcat.ColorsGridViewAdapter;
+import com.braincollaboration.madcat.LibraryColorObject;
+import com.braincollaboration.madcat.R;
 
 import java.util.ArrayList;
 

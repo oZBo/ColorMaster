@@ -14,7 +14,7 @@
         android:gravity="center|bottom"
         android:paddingBottom="15dp">
 
-        <com.colormaster.game.views.CustomFontTextView
+        <com.braincollaboration.madcat.views.CustomFontTextView
             android:id="@+id/app_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

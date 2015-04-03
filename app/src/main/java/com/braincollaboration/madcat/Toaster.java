@@ -1,4 +1,4 @@
-package com.colormaster.game;
+package com.braincollaboration.madcat;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
-import com.colormaster.game.views.CustomFontTextView;
+import com.braincollaboration.madcat.views.CustomFontTextView;
 
 public class Toaster {
     private static Toaster mInstance = null;

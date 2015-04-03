@@ -1,4 +1,4 @@
-package com.colormaster.game.views;
+package com.braincollaboration.madcat.views;
 
 import android.content.Context;
 import android.graphics.Typeface;
